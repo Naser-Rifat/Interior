@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@mport "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
