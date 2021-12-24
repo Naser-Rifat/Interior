@@ -6,7 +6,7 @@ const LatestInterrior = () => {
         <div>
 
 
-            <div class="m-10 mx-auto p-16 sm:p-24 lg:p-48 bg-gray-200">
+            <div class="m-10 mx-auto p-16 sm:p-24 lg:p-48 ">
 
 
                 <div class="relative rounded-lg block md:flex items-center bg-gray-100 shadow-xl" style={{ minHeight: "19rem" }}>

@@ -3,8 +3,8 @@ import React from 'react';
 const About = () => {
     return (
         <div>
-            <div className="flex justify-center items-center w-screen h-screen bg-gray-800">
-                <div className="container mx-auto m-40 mt-10 mb-10 lg:mb-40 lg:px-20">
+            <div className="flex justify-center items-center w-screen h-screen ">
+                <div className="mx-32 mx-auto m-40 mt-10 mb-10 lg:mb-40 lg:px-20">
                     <div className="relative w-full my-4 lg:w-9/12 mr-auto rounded-2xl shadow-2xl">
                         <img alt="Card" src="https://i.ibb.co/RCQftfk/pierre-chatel-innocenti-Al-Sl-E8-IAj-Zo-unsplash-1.png" className="max-w-full h-90 rounded-lg shadow-lg" />
                     </div>
@@ -27,12 +27,12 @@ const About = () => {
             </div>
 
             <div className="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
-                <div>
+                {/* <div>
                     <a title="Buy me a pizza" href="https://www.buymeacoffee.com/Dekartmc" target="_blank"
                         className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
                         <img className="object-cover object-center w-full h-full rounded-full" src="https://img.icons8.com/emoji/48/000000/pizza-emoji.png" />
                     </a>
-                </div>
+                </div> */}
             </div>
         </div>
     );

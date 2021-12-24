@@ -5,6 +5,8 @@ import Gellary from '../Gellary/Gellary';
 import Banner from '../Header/Banner';
 import Navigation from '../Header/Navigation';
 import LatestInterrior from '../LatestInterior/LatestInterrior';
+import Services from '../Services/Services';
+import Subscribe from '../Subscribe/Subscribe';
 
 
 const Home = () => {
@@ -12,10 +14,12 @@ const Home = () => {
         <div>
             <Navigation></Navigation>
             <Banner></Banner>
-            <About></About>
-            <Discovernew></Discovernew>
             <LatestInterrior></LatestInterrior>
+            <Discovernew></Discovernew>
+            <About></About>
+            <Services></Services>
             <Gellary></Gellary>
+            <Subscribe></Subscribe>
 
         </div>
     );

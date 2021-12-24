@@ -2,12 +2,12 @@ import React from 'react';
 
 const Gellary = () => {
     return (
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-5xl mx-auto  mt-32">
 
             <div className="px-3 py-2">
 
 
-                <h2 className="text-4xl bg-gray-700 p-4 rounded text-white text-center">GALLERY  </h2>
+                <h2 className="text-4xl p-4 rounded text-gray-600 font-bold text-center">GALLERY  </h2>
                 <div className="grid grid-cols-3 gap-2 my-3">
                     <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="ddd" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
                     <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: " url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
