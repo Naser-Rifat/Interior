@@ -1,9 +1,9 @@
 import React from 'react';
-import About from '../About/About';
-import Discovernew from '../Discovernew/Discovernew';
-import Gellary from '../Gellary/Gellary';
-import Banner from '../Header/Banner';
-import Navigation from '../Header/Navigation';
+import Showcase from '../../Showscase/Showcase';
+import Banner from '../Banner/Banner';
+import Company from '../Company/Company';
+import Feedback from '../Feedback/Feedback';
+import Gallery from '../Gellary/Gallery';
 import LatestInterrior from '../LatestInterior/LatestInterrior';
 import Services from '../Services/Services';
 import Subscribe from '../Subscribe/Subscribe';
@@ -12,13 +12,16 @@ import Subscribe from '../Subscribe/Subscribe';
 const Home = () => {
     return (
         <div>
-            <Navigation></Navigation>
+
             <Banner></Banner>
+
+            <Company></Company>
             <LatestInterrior></LatestInterrior>
-            <Discovernew></Discovernew>
-            <About></About>
+            {/* <About></About> */}
+            <Showcase></Showcase>
             <Services></Services>
-            <Gellary></Gellary>
+            <Gallery></Gallery>
+            <Feedback></Feedback>
             <Subscribe></Subscribe>
 
         </div>

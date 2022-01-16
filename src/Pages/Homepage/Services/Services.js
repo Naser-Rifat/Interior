@@ -2,18 +2,18 @@ import React from 'react';
 
 const Services = () => {
     return (
-        <div className='  my-10'>
+        <div className=''>
 
-            <section className="   text-gray-500 body-font lg:mx-36">
+            <section className="  text-gray-500 body-font lg:mx-36">
                 <div className=" container px-5 py-24 mx-auto">
                     <div className="flex flex-wrap w-full mb-8">
                         <div className="w-full mb-6 lg:mb-0">
-                            <h1 className="sm:text-4xl text-5xl font-medium title-font mb-2 text-gray-900">Services</h1>
+                            <h1 className="sm:text-4xl text-5xl uppercase  font-bold title-font mb-2 text-black">Services</h1>
                             {/* <div className="h-1 mx-auto r w-20 bg-indigo-500 rounded"></div> */}
                         </div>
                     </div>
-                    <div className="  flex flex-wrap -m-4">
-                        <div className="p-4 lg:w-1/3 w-1/2">
+                    <div className="  lg:flex flex-wrap -m-4">
+                        <div className="p-4  lg:w-1/3 ">
                             <div className="flex rounded-lg h-full bg-white border shadow- p-8 flex-col">
                                 <div className="flex items-center mb-3">
                                     <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
@@ -33,7 +33,7 @@ const Services = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="p-4 lg:w-1/3 w-1/2">
+                        <div className="p-4 lg:w-1/3 ">
                             <div className="flex rounded-lg h-full bg-pink-500 p-8 flex-col">
                                 <div className="flex items-center mb-3">
                                     <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
@@ -54,7 +54,7 @@ const Services = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="p-4 lg:w-1/3 w-1/2">
+                        <div className="p-4 lg:w-1/3">
                             <div className="flex rounded-lg h-full bg-pink-500 p-8 flex-col">
                                 <div className="flex items-center mb-3">
                                     <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">

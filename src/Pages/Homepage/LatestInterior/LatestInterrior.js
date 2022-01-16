@@ -1,52 +1,135 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const LatestInterrior = () => {
 
     return (
-        <div>
+        <div className=''>
+
+            <div className="min-h-screen bg-white flex justify-center items-center ">
+                <div className="lg:mx-40 mx-auto    rounded-xl">
+
+                    <h1 className="text-4xl uppercase font-bold from-current text-black mb-8">Latest Projects</h1>
+                    <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
+                        <div className="bg-white">
+                            <div>
+                                <div className="shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105">
+                                    <NavLink to="/projectdetails">
+                                        <div style={{}}>
+                                            <img className="w-full" src="https://i.ibb.co/qs011f1/pexels-cleyder-duque-3637739.jpg" />
+                                            <div className="px-4 py-2 ">
+                                                <h1 className="text-xl font-gray-700 font-bold">A Modern Kitchen Room</h1>
+                                                <div className="flex justify-start  space-x-2 mt-2">
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" className=" h-4 w-4  text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                        </svg>
+                                                    </span>
+                                                    <h3 className=" text-sm text-gray-600 font-semibold mb-2">Gulshan, Bangladesh</h3>
+                                                </div>
+                                                {/* <p className="text-sm tracking-normal">Częstochowski pomnik Jana Pawła II wyjątkowo interesująco wpisuje się w poprzemysłowy krajobraz tego miasta o mocnych lewicowych, robotniczych i socjalistycznych tradycjach. Powstały w 2013 roku, uchodzi za najwyższego Karola Wojtyłę w Polsce.</p> */}
+                                                {/* <button className="mt-12 w-full text-center bg-yellow-400 py-2 rounded-lg">Read more</button> */}
+                                            </div>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="bg-white">
+                            <div>
+                                <div className="shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105">
+                                    <div>
+                                        <img className="w-full" src="https://i.ibb.co/QdPTn92/pexels-jason-boyd-3209045.jpg" />
+                                        <div className="px-4 py-2 ">
+                                            <h1 className="text-xl font-gray-700 font-bold">Living  Room </h1>
+                                            <div className="flex justify-center  space-x-2 mt-2">
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className=" h-4 w-4  text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    </svg>
+                                                </span>
+                                                <h3 className="text-sm text-gray-600 font-semibold mb-2">Cox's Bazar,Bangladesh</h3>
+                                            </div>
+                                            {/* <p className="text-sm tracking-normal">Częstochowski pomnik Jana Pawła II wyjątkowo interesująco wpisuje się w poprzemysłowy krajobraz tego miasta o mocnych lewicowych, robotniczych i socjalistycznych tradycjach. Powstały w 2013 roku, uchodzi za najwyższego Karola Wojtyłę w Polsce.</p> */}
+                                            {/* <button className="mt-12 w-full text-center bg-yellow-400 py-2 rounded-lg">Read more</button> */}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="bg-white">
+                            <div>
+                                <div className="shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105">
+                                    <div>
+                                        <img className="w-full" src="https://i.ibb.co/yqsqZSY/alberto-castillo-q-mx4m-Sk-K9zeo-unsplash-2-1.jpg" />
+                                        <div className="px-4 py-2 ">
+                                            <h1 className="text-xl font-gray-700 font-bold">Living Dining Room and Patio</h1>
+                                            <div className="flex justify-center  space-x-2 mt-2">
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className=" h-4 w-4  text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    </svg>
+                                                </span>
+                                                <h3 className="text-sm text-gray-600 font-semibold mb-2">Sylhet,Bangladesh</h3>
+                                            </div>
+                                            {/* <p className="text-sm tracking-normal">Częstochowski pomnik Jana Pawła II wyjątkowo interesująco wpisuje się w poprzemysłowy krajobraz tego miasta o mocnych lewicowych, robotniczych i socjalistycznych tradycjach. Powstały w 2013 roku, uchodzi za najwyższego Karola Wojtyłę w Polsce.</p> */}
+                                            {/* <button className="mt-12 w-full text-center bg-yellow-400 py-2 rounded-lg">Read more</button> */}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
-            <div class="m-10 mx-auto p-16 sm:p-24 lg:p-48 ">
+                    </div>
+                </div>
+            </div>
 
 
-                <div class="relative rounded-lg block md:flex items-center bg-gray-100 shadow-xl" style={{ minHeight: "19rem" }}>
-                    <div class="relative w-full md:w-2/5 h-full overflow-hidden rounded-t-lg md:rounded-t-none md:rounded-l-lg" style={{ minHeight: "19rem" }}>
-                        <img class="absolute inset-0 w-full h-full object-cover object-center" src="https://i.ibb.co/PtbFcHH/Mask-Group-1.png" alt="" />
-                        <div class="absolute inset-0 w-full h-full bg-indigo-900 opacity-20"></div>
-                        <div class="absolute inset-0 w-full h-full flex items-center justify-center fill-current text-white">
+            {/* <div className=" mx-auto  sm:p-2 lg:p-36 mx-3 ">
+
+
+                <div className="relative rounded-lg block md:flex items-center bg-gray-100 shadow-xl" style={{ minHeight: "19rem" }}>
+                    <div className="relative w-full md:w-2/5 h-full overflow-hidden rounded-t-lg md:rounded-t-none md:rounded-l-lg" style={{ minHeight: "19rem" }}>
+                        <img className="absolute inset-0 w-full h-full object-cover object-center" src="https://i.ibb.co/PtbFcHH/Mask-Group-1.png" alt="" />
+                        <div className="absolute inset-0 w-full h-full bg-indigo-900 opacity-20"></div>
+                        <div className="absolute inset-0 w-full h-full flex items-center justify-center fill-current text-white">
 
                         </div>
                     </div>
-                    <div class="w-full md:w-3/5 h-full flex items-center bg-gray-100 rounded-lg">
-                        <div class="p-12 md:pr-24 md:pl-16 md:py-12">
-                            <p class="text-gray-600"><span class="text-gray-900">Missguided</span> is a UK-based fashion retailer that has nearly doubled in size since last year. They integrated Stripe to deliver seamless checkout across mobile and web for customers in 100+ countries, all while automatically combating fraud.</p>
-                            <a class="flex items-baseline mt-3 text-indigo-600 hover:text-indigo-900 focus:text-indigo-900" href="">
+                    <div className="w-full md:w-3/5 h-full flex items-center bg-gray-100 rounded-lg">
+                        <div className="p-12 md:pr-24 md:pl-16 md:py-12">
+                            <p className="text-gray-600"><span className="text-gray-900">Missguided</span> is a UK-based fashion retailer that has nearly doubled in size since last year. They integrated Stripe to deliver seamless checkout across mobile and web for customers in 100+ countries, all while automatically combating fraud.</p>
+                            <a className="flex items-baseline mt-3 text-indigo-600 hover:text-indigo-900 focus:text-indigo-900" href="">
                                 <span>Learn more about our users</span>
-                                <span class="text-xs ml-1">&#x279c;</span>
+                                <span className="text-xs ml-1">&#x279c;</span>
                             </a>
                         </div>
-                        <svg class="hidden md:block absolute inset-y-0 h-full w-24 fill-current text-gray-100 -ml-12" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <svg className="hidden md:block absolute inset-y-0 h-full w-24 fill-current text-gray-100 -ml-12" viewBox="0 0 100 100" preserveAspectRatio="none">
                             <polygon points="50,0 100,0 50,100 0,100" />
                         </svg>
                     </div>
-                    <button class="absolute top-0 mt-32 left-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -ml-6 focus:outline-none focus:shadow-outline">
-                        <span class="block" style={{ transform: "scale(-1)" }}>&#x279c;</span>
+                    <button className="absolute top-0 mt-32 left-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -ml-6 focus:outline-none focus:shadow-outline">
+                        <span className="block" style={{ transform: "scale(-1)" }}>&#x279c;</span>
                     </button>
-                    <button class="absolute top-0 mt-32 right-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -mr-6 focus:outline-none focus:shadow-outline">
-                        <span class="block" style={{ transform: "scale(1)" }}>&#x279c;</span>
+                    <button className="absolute top-0 mt-32 right-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -mr-6 focus:outline-none focus:shadow-outline">
+                        <span className="block" style={{ transform: "scale(1)" }}>&#x279c;</span>
                     </button>
                 </div>
 
 
-                <div class="flex items-center pt-5 justify-between">
-                    <button class="px-2 opacity-50 hover:opacity-100 focus:opacity-100"><img class="w-full" src="https://stripe.com/img/v3/payments/overview/logos/kickstarter.svg" alt="" style={{ maxHeight: "60px" }} /></button>
-                    <button class="px-2 opacity-50 hover:opacity-100 focus:opacity-100"><img class="w-full" src="https://stripe.com/img/v3/payments/overview/logos/slack.svg" alt="" style={{ maxHeight: "60px" }} /></button>
-                    <button class="px-2 opacity-50 hover:opacity-100 focus:opacity-100"><img class="w-full" src="https://stripe.com/img/v3/payments/overview/logos/glossier.svg" alt="" style={{ maxHeight: "60px" }} /></button>
-                    <button class="px-2 opacity-50 hover:opacity-100 focus:opacity-100"><img class="w-full" src="https://stripe.com/img/v3/payments/overview/logos/charity_water.svg" alt="" style={{ maxHeight: "60px" }} /></button>
-                    <button class="px-2 opacity-100 hover:opacity-100 focus:opacity-100"><img class="w-full" src="https://stripe.com/img/v3/payments/overview/logos/missguided.svg" alt="" style={{ maxHeight: "60px" }} /></button>
+                <div className="flex items-center pt-5 justify-between">
+                    <button className="px-2 opacity-50 hover:opacity-100 focus:opacity-100"><img className="w-full" src="https://stripe.com/img/v3/payments/overview/logos/kickstarter.svg" alt="" style={{ maxHeight: "60px" }} /></button>
+                    <button className="px-2 opacity-50 hover:opacity-100 focus:opacity-100"><img className="w-full" src="https://stripe.com/img/v3/payments/overview/logos/slack.svg" alt="" style={{ maxHeight: "60px" }} /></button>
+                    <button className="px-2 opacity-50 hover:opacity-100 focus:opacity-100"><img className="w-full" src="https://stripe.com/img/v3/payments/overview/logos/glossier.svg" alt="" style={{ maxHeight: "60px" }} /></button>
+                    <button className="px-2 opacity-50 hover:opacity-100 focus:opacity-100"><img className="w-full" src="https://stripe.com/img/v3/payments/overview/logos/charity_water.svg" alt="" style={{ maxHeight: "60px" }} /></button>
+                    <button className="px-2 opacity-100 hover:opacity-100 focus:opacity-100"><img className="w-full" src="https://stripe.com/img/v3/payments/overview/logos/missguided.svg" alt="" style={{ maxHeight: "60px" }} /></button>
                 </div>
 
-            </div>
+            </div> */}
 
             {/* <html>
 

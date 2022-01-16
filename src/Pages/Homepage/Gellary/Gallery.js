@@ -1,26 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import './Gallery.css';
 
-const Gellary = () => {
+const Gallery = () => {
+    const [images,setImages]=React.useState([])
+    useEffect(()=>{
+      fetch('http://localhost:8000/images')
+      .then(res=>res.json())
+      .then(data=>{
+        
+        setImages(data)
+      })
+    },[])
     return (
-        <div className="max-w-5xl mx-auto  mt-32">
+        <div className="max-w-5xl mx-auto px-5 my-32">
 
-            <div className="px-3 py-2">
+            <div className=" py-2">
 
 
-                <h2 className="text-4xl p-4 rounded text-gray-600 font-bold text-center">GALLERY  </h2>
-                <div className="grid grid-cols-3 gap-2 my-3">
-                    <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="ddd" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
-                    <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: " url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
+                {/* <h2 className="text-4xl py-4 rounded text-black font-bold ">GALLERY  </h2> */}
+                <h1 className="sm:text-4xl ml-2 text-5xl uppercase pt-2 pb-8 font-bold title-font mb-2 text-black">Gallery</h1>
+               <div style={{height:"vh"}} className='gallery'>
+               {
+                         images.slice(0,10).map(image=> 
+                            <div className='pics' style={{width:"100%" }} key={image._id}>
+                            <img src={image.img}></img>
+                            </div>
+                        )
+                    }
+               </div>
+                {/* <div className="grid grid-cols-3 gap-4 my-3">
+                    
                     <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
+                    <a className="block bg-center  bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
+                    <a className="block bg-center row-span-2 bg-no-repeat bg-cover  w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
 
                     <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
+                    <a className="block bg-center row-span-2 bg-no-repeat bg-cover  w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
+                    <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
+
+                    <a className="block bg-center row-span-2 bg-no-repeat bg-cover  w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
                     <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
                     <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
 
-                    <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
-                    <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
-                    <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
-                </div>
+                </div> */}
 
             </div>
 
@@ -85,4 +107,4 @@ const Gellary = () => {
     );
 };
 
-export default Gellary;
+export default Gallery;

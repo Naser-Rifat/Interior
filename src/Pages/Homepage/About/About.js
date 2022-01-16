@@ -4,7 +4,7 @@ const About = () => {
     return (
         <div>
             <div className="flex justify-center items-center w-screen h-screen ">
-                <div className="mx-32 mx-auto m-40 mt-10 mb-10 lg:mb-40 lg:px-20">
+                <div className=" mx-auto mt-10 mb-10 lg:mb-40 lg:px-20">
                     <div className="relative w-full my-4 lg:w-9/12 mr-auto rounded-2xl shadow-2xl">
                         <img alt="Card" src="https://i.ibb.co/RCQftfk/pierre-chatel-innocenti-Al-Sl-E8-IAj-Zo-unsplash-1.png" className="max-w-full h-90 rounded-lg shadow-lg" />
                     </div>
