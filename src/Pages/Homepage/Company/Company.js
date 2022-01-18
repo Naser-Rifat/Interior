@@ -16,10 +16,10 @@ const Company = () => {
 
     return (
 
-        <section className="relative pt-12 ">
+        <section className="relative pt-2 lg:mx-16">
             <div className="items-center flex flex-wrap">
                 <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
-                    <img alt="..." className="max-w-full rounded-lg shadow-lg" src="https://getpaidstock.com/tmp/[GetPaidStock.com]-61e3af163b96a.jpg" />
+                    <img alt="..." className="max-w-full rounded-lg shadow-lg" src="https://i.ibb.co/bBYL9nt/Toy-house-in-the-background-a-Christmas-tree-and-a-deer-Procurement-for-design-Background-New-Year-W.jpg" />
                 </div>
                 <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                     <div className="md:pr-12 md:mt-10">

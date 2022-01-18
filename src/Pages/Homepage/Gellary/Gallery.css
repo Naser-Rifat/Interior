@@ -1,3 +1,13 @@
+.upgallary {
+  height: 1000px;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.upgallary::-webkit-scrollbar {
+  width: 0px;
+}
+
 .gallery {
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -12,6 +22,7 @@
   transition: all 350ms ease;
   cursor: pointer;
   margin-bottom: 12px;
+  display: block;
 }
 
 @media (max-width: 991px) {

@@ -1,7 +1,10 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import AuthProvider from './Context/AuthProvider/AuthProvider';
 import Home from './Pages/Homepage/Home/Home';
+import Login from './Pages/Login/LoginForm/Login';
+import SignUpForm from './Pages/Login/SignUpForm/SignUpForm';
 import ProjectDetails from './Pages/ProjectDetails/ProjectDetails';
 import Footer from './Pages/Shared/Footer';
 import Navigation from './Pages/Shared/Navigation';
@@ -9,22 +12,27 @@ import Navigation from './Pages/Shared/Navigation';
 function App() {
   return (
     <div className="">
-
-      <BrowserRouter>
+   <AuthProvider>  
+     <BrowserRouter>
         <Navigation></Navigation>
         <Routes>
-          <Route path="/" element={<Home> </Home>}>
+          <Route path="/" element={<Home> </Home>}/>
 
-          </Route>
-          <Route path="/home" element={<Home> </Home>}>
+     
+          <Route path="/home" element={<Home> </Home>}/>
 
-          </Route>
-          <Route path="/projectdetails" element={<ProjectDetails></ProjectDetails>}>
+          <Route path="/login" element={<Login> </Login>}/>
 
-          </Route>
+
+          <Route path="/signup" element={<SignUpForm> </SignUpForm>}/>
+
+
+          <Route path="/projectdetails" element={<ProjectDetails></ProjectDetails>}/>
+
         </Routes>
         <Footer></Footer>
       </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
     return (
@@ -10,21 +11,21 @@ const Navigation = () => {
                     </div>
                     <div className="flex items-center">
                         <nav className="font-sen text-gray-800 dark:text-white uppercase text-lg lg:flex items-center hidden">
-                            <a href="#" className="py-2 px-6 flex">
+                            <NavLink to="" className="py-2 px-6 flex">
                                 Home
-                            </a>
-                            <a href="#" className="py-2 px-6 flex">
+                            </NavLink>
+                            <NavLink to="" className="py-2 px-6 flex">
                                 Watch
-                            </a>
-                            <a href="#" className="py-2 px-6 flex">
+                            </NavLink>
+                            <NavLink to="" className="py-2 px-6 flex">
                                 Product
-                            </a>
-                            <a href="#" className="py-2 px-6 flex">
+                            </NavLink>
+                            <NavLink to="" className="py-2 px-6 flex">
                                 Contact
-                            </a>
-                            <a href="#" className="py-2 px-6 flex">
-                                Carrer
-                            </a>
+                            </NavLink>
+                            <NavLink to="/login" className="py-2 px-6 flex">
+                                Sign in
+                            </NavLink>
                         </nav>
                         <button className="lg:hidden flex flex-col ml-4">
                             <span className="w-6 h-1 bg-gray-800 dark:bg-white mb-1">
@@ -44,7 +45,7 @@ const Navigation = () => {
         //         <div className="md:flex items-center justify-between py-2 px-8 md:px-12">
         //             <div className="flex justify-between items-center">
         //                 <div className="text-2xl font-bold text-gray-800 md:text-3xl">
-        //                     <a href="#">Brand</a>
+        //                     <NavLink to="">Brand</NavLink>
         //                 </div>
         //                 <div className="md:hidden">
         //                     <button type="button" className="block text-gray-800 hover:text-gray-700 focus:text-gray-700 focus:outline-none">
@@ -56,9 +57,9 @@ const Navigation = () => {
         //                 </div>
         //             </div>
         //             <div className="flex flex-col md:flex-row hidden md:block -mx-2">
-        //                 <a href="#" className="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Home</a>
-        //                 <a href="#" className="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">About</a>
-        //                 <a href="#" className="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Contact</a>
+        //                 <NavLink to="" className="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Home</NavLink>
+        //                 <NavLink to="" className="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">About</NavLink>
+        //                 <NavLink to="" className="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Contact</NavLink>
         //             </div>
         //         </div>
         //     </nav>

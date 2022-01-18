@@ -12,14 +12,14 @@ const Gallery = () => {
       })
     },[])
     return (
-        <div className="max-w-5xl mx-auto px-5 my-32">
+        <div  className="max-w-5xl mx-auto  my-32 upgallary">
 
             <div className=" py-2">
 
 
                 {/* <h2 className="text-4xl py-4 rounded text-black font-bold ">GALLERY  </h2> */}
                 <h1 className="sm:text-4xl ml-2 text-5xl uppercase pt-2 pb-8 font-bold title-font mb-2 text-black">Gallery</h1>
-               <div style={{height:"vh"}} className='gallery'>
+               <div  className='gallery'>
                {
                          images.slice(0,10).map(image=> 
                             <div className='pics' style={{width:"100%" }} key={image._id}>
