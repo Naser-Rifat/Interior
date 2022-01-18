@@ -30,7 +30,7 @@ const Showcase = () => {
           
                     {
                         productsimages.map(productsimage=>
-                            <img className="rounded-t-lg w-80  h-96  object-contain	" src={productsimage.img} alt="" />
+                            <img key={productsimage._id} className="rounded-t-lg w-80  h-96  object-contain	" src={productsimage.img} alt="" />
                             )
                     }        
       

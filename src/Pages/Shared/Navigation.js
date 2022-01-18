@@ -1,13 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../../../src/Hooks/useAuth';
 
 const Navigation = () => {
+    const {user,logout}=useAuth();
     return (
         <main className="dark:bg-gray-800 bg-white relative overflow-hidden">
             <header className="h-24 sm:h-32 flex items-center z-30 w-full">
                 <div className="container mx-auto px-6 flex items-center justify-between">
                     <div className="uppercase text-gray-800 dark:text-white font-black text-3xl">
-                        INTERIOR.us
+                        INTERIOR.US
                     </div>
                     <div className="flex items-center">
                         <nav className="font-sen text-gray-800 dark:text-white uppercase text-lg lg:flex items-center hidden">
@@ -23,9 +25,17 @@ const Navigation = () => {
                             <NavLink to="" className="py-2 px-6 flex">
                                 Contact
                             </NavLink>
-                            <NavLink to="/login" className="py-2 px-6 flex">
-                                Sign in
+                            <NavLink to="/signup" className="py-2 px-6 flex">
+                                Sign up
                             </NavLink>
+                            {
+                                   
+                                    user?.email ? <button onClick={logout} className='py-2 px-6 flex uppercase' >Logout</button> : <NavLink to="/login" > <button className='py-2 px-6 flex uppercase' >Login</button></NavLink>
+                                
+                            }
+                            {
+                                   user &&  <div className='text-black'>{user.displayName} </div>
+                            }
                         </nav>
                         <button className="lg:hidden flex flex-col ml-4">
                             <span className="w-6 h-1 bg-gray-800 dark:bg-white mb-1">

@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../Hooks/useAuth';
+import ModalverifyEmail from '../../Modals/ModalverifyEmail'
 
 const SignUpForm = () => {
+	const {GoogleSignIn,registerWithEmailPassword,error}=useAuth();
+
+	const location = useLocation();	
+    const navigate = useNavigate();
+
     const [signupinfo,setSignUpInfo]=useState({})
+    const [openmodal,setOpenModal]=useState(false)
 
 const handleOnchange=(e)=>{
      const field= e.target.name;
@@ -14,9 +22,27 @@ const handleOnchange=(e)=>{
 
     
 }
-const handleOnsubmit=()=>{
-
-    
+const handleModal=()=>{
+	
+	
+}
+const handleOnsubmit=(e)=>{
+      console.log("ok");
+    registerWithEmailPassword( signupinfo.email,signupinfo.password ,signupinfo.username)
+	setTimeout(() => {
+		if(signupinfo.email && signupinfo.password && !error){
+			setOpenModal(true)
+		}
+		else{
+			setOpenModal(false)
+	
+		}
+	}, 1000);
+		e.preventDefault();
+	
+}
+const handleGooglesignIn=()=>{
+	GoogleSignIn(location, navigate)
 }
 
     return (
@@ -45,16 +71,25 @@ const handleOnsubmit=()=>{
 					  </div>
 					  <input onChange={handleOnchange} name="password" className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password"/>
 				  </div>
+				  {
+					   
+							error && <div>{error}</div>
+
+						
+				  }
+				  {
+					  openmodal && <ModalverifyEmail closeModal={setOpenModal}></ModalverifyEmail>
+				  }
 				  <div className="mt-8">
-					  <button type='submit' className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">Sign Up</button>
+					  <button  type='submit' className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">Sign Up</button>
 				  </div>
                   </form>
-				  <div className="mt-4 flex items-center justify-between">
+				  <div  className="mt-4 flex items-center justify-between">
 					  <span className="border-b w-1/5 md:w-1/4"></span>
 					  <NavLink to="/login" className="text-xs text-gray-500 uppercase">or login</NavLink>
 					  <span className="border-b w-1/5 md:w-1/4"></span>
 				  </div>
-                  <a href="#" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+                  <a onClick={handleGooglesignIn} href="#" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
 					  <div className="px-4 py-3">
 						  <svg className="h-6 w-6" viewBox="0 0 40 40">
 							  <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#FFC107"/>
