@@ -7,7 +7,8 @@ const Subscribe = () => {
             <div className="w-full bg-gray-500  bg-no-repeat" style={{
                 backgroundBlendMode: "multiply",
                 backgroundPosition: "center center",
-                backgroundImage: "url('https://images.unsplash.com/photo-1572297870735-065d402f7b29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')"
+                objectFit: 'cover',
+                backgroundImage: "url('https://emaurri.qodeinteractive.com/wp-content/uploads/2020/12/land-parallax-img1.jpg')"
             }}>
                 <div className=" p-10  py-20  flex  flex-col  flex-wrap  justify-center  content-center">
                     <div className=" m-0  p-0  text-3xl  text-white  antialiased  text-center">Get Our Updates</div>

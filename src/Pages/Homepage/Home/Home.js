@@ -1,5 +1,5 @@
 import React from 'react';
-import Showcase from '../../Showscase/Showcase';
+import ProductShowcase from '../../ProductShowscase/ProductShowcase';
 import Banner from '../Banner/Banner';
 import Company from '../Company/Company';
 import Feedback from '../Feedback/Feedback';
@@ -18,7 +18,7 @@ const Home = () => {
             <Company></Company>
             <LatestInterrior></LatestInterrior>
             {/* <About></About> */}
-            <Showcase></Showcase>
+           <ProductShowcase></ProductShowcase>
             <Services></Services>
             <Gallery></Gallery>
             <Feedback></Feedback>

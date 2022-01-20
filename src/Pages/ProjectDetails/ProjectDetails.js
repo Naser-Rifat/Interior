@@ -22,26 +22,25 @@ import { useParams } from 'react-router-dom';
     return (
          <div>
 
-            <div className="min-w-screen min-h-screen bg-yellow-300 flex items-center p-5 lg:p-10 overflow-hidden relative">
+            <div style={{backgroundColor:"#F3F4F6"}} className="min-w-screen min-h-screen  flex items-center p-5 lg:p-10 overflow-hidden relative">
 
                
             <section className="py-48 px-10 bg-white flex flex-col justify-center">
 
-          <div className="grid grid-cols-2 gap-10 max-w-6xl mx-auto">
+          <div className="lg:grid grid-cols-2 gap-10 max-w-6xl mx-auto">
 
-           <div className="-mt-20 flex justify-end">
-              <img className="w-2/3 h-2/3 object-cover rounded-lg overflow-hidden" src="https://images.unsplash.com/photo-1616486788371-62d930495c44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" />
+           <div className="-mt-20 mb-2 lg:flex  justify-end">
+              <img style={{height:"516px"}} className="w-2/3   object-cover rounded-lg overflow-hidden" src={projectdetails.img2} />
       </div>
-      <div className="flex justify-start">
-        <img className="rounded-lg object-cover overflow-hidden" src="https://images.unsplash.com/photo-1640020580603-e7beafd75d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" />
+      <div className="lg:flex  justify-start">
+        <img style={{height:"347px"}} className="rounded-lg object-cover sm:my-2 h-full w-full overflow-hidden" src={projectdetails.img3} />
       </div>
-      <div className="-mt-64 flex justify-start">
-        <img className="rounded-lg object-cover overflow-hidden" src="https://images.unsplash.com/photo-1533557950217-8768f2ee7491?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" />
+      <div className="mt-2 mb-16 flex  justify-start">
+        <img style={{height:"702px"}} className="rounded-lg object-cover  w-full overflow-hidden" src={projectdetails.img4} />
       </div>
-      <div className="flex justify-start -mr-28 ml-28">
-        <img className="w-2/3 h-2/3 object-cover rounded-lg overflow-hidden" src="https://images.unsplash.com/photo-1620371350502-999e9a7d80a4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=670&q=80" />
-      </div>
-      <div className="-translate-y-96 transform ml-28 -mr-28 p-16 shadow-xl rounded-xl overflow-hidden bg-white">
+      <div className="lg:flex justify-start  ">
+
+      <div className="-translate-y-20 transform  p-16 shadow-xl rounded-xl overflow-hidden bg-white">
         <div className="space-y-4">
           <p className="text-5xl font-bold text-black tracking-tight">
             {projectdetails.title}
@@ -57,7 +56,7 @@ Our collection is updated every day with beautiful solutions. Aenean commodo eli
              
                   
                 <p className='text-gray-600 font-semibold'> Object type: </p>
-                 <p className=''>  Interior design </p>
+                 <p className=''>  {projectdetails.objectType} </p>
         
         </div>
         <div className="grid grid-cols-2 gap-6 mt-2 py-2">
@@ -65,7 +64,7 @@ Our collection is updated every day with beautiful solutions. Aenean commodo eli
              
                   
                 <p className='text-gray-600 font-semibold'>Area: </p>
-                 <p className=''> 2 690.978 ft2  </p>
+                 <p className=''> {projectdetails.Area}  </p>
         
         </div>
         <div className="grid grid-cols-2 gap-6  mt-2 py-2">
@@ -73,7 +72,7 @@ Our collection is updated every day with beautiful solutions. Aenean commodo eli
              
                   
                 <p className='text-gray-600 font-semibold'> Term of works: </p>
-                 <p className=''>  6 months </p>
+                 <p className=''> {projectdetails.TermOfWorks} </p>
         
         </div>
         <div className="grid grid-cols-2 gap-6  mt-2 py-2">
@@ -81,7 +80,7 @@ Our collection is updated every day with beautiful solutions. Aenean commodo eli
              
                   
                 <p className='text-gray-600 font-semibold'> Location: </p>
-                 <p className=''>  Gulshan </p>
+                 <p className=''> {projectdetails.address} </p>
         
         </div>
 
@@ -93,6 +92,9 @@ Our collection is updated every day with beautiful solutions. Aenean commodo eli
             <li> <a className="share-btn share-btn-pinterest share-btn-5" href="#"> <i className="fab fa-pinterest-p"></i> </a></li>
             </ul>
       </div>
+        {/* <img className="w-2/3 h-2/3 object-cover rounded-lg overflow-hidden" src="https://images.unsplash.com/photo-1620371350502-999e9a7d80a4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=670&q=80" /> */}
+      </div>
+      
     </div>
   </section>
                 {/* <div className="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">

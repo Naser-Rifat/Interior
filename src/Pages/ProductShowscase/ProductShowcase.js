@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
-import './Showcase.css';
+import './ProductShowcase.css';
 
-const Showcase = () => {
+const ProductShowcase = () => {
     const [productsimages,setProductImages]=React.useState([]);
 
     const settings = {
@@ -30,7 +31,15 @@ const Showcase = () => {
           
                     {
                         productsimages.map(productsimage=>
-                            <img key={productsimage._id} className="rounded-t-lg w-80  h-96  object-contain	" src={productsimage.img} alt="" />
+                           <NavLink to="/exploreproducts"> 
+                           <div key={productsimage._id}  className=' hover:bg-dark rounded-t-lg w-80 mx-auto relative   productsimg' style={{ height:"480px",
+                             backgroundBlendMode: "overly",
+                            backgroundPosition: "center center",
+                            backgroundImage:`url(${productsimage.img})`}}>
+                               <button className='cursor-pointer border-2 text-xl text-gray-500 absolute bottom-0 bg-white rounded-lg py-2 px-10 mx-10 my-10 hover:shadow-lg   justify-end transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-black hover:text-white duration-300'> More Product <i className=" text-gray-500 pl-2 -mb-5 fas fa-arrow-right"></i></button>
+                                </div>
+                                {/* <img key={productsimage._id} className="rounded-t-lg w-80 mx-auto h-96  object-contain	" src={productsimage.img} alt="" /> */}
+                           </NavLink>
                             )
                     }        
       
@@ -165,4 +174,4 @@ const Showcase = () => {
     );
 };
 
-export default Showcase;
+export default ProductShowcase;

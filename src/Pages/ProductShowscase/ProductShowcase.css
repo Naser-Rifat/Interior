@@ -4,3 +4,6 @@
 .slick-next:before {
   color: black !important;
 }
+.productsimg:hover {
+  background-size: "cover" !important;
+}
