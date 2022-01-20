@@ -7,7 +7,7 @@ const Gallery = () => {
       fetch('http://localhost:8000/images')
       .then(res=>res.json())
       .then(data=>{
-        
+        console.log("gallery", data);
         setImages(data)
       })
     },[])

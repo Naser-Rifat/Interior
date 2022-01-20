@@ -25,9 +25,9 @@ const Navigation = () => {
                             <NavLink to="" className="py-2 px-6 flex">
                                 Contact
                             </NavLink>
-                            <NavLink to="/signup" className="py-2 px-6 flex">
+                            {/* <NavLink to="/signup" className="py-2 px-6 flex">
                                 Sign up
-                            </NavLink>
+                            </NavLink> */}
                             {
                                    
                                     user?.email ? <button onClick={logout} className='py-2 px-6 flex uppercase' >Logout</button> : <NavLink to="/login" > <button className='py-2 px-6 flex uppercase' >Login</button></NavLink>

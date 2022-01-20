@@ -26,10 +26,11 @@ const [isLoading, setIsLoading] = useState(true);
                 const user = result.user;
                 setUser(user);
                 console.log(user);
-                // saveUser(user?.email, user?.displayName, 'PUT')
-                // setError('')
-                // const destination = location?.state?.from || '/';
-                // history.replace(destination);
+                
+                 saveUser(user?.email, user?.displayName, 'PUT')
+                setError('')
+                const destination = location?.state?.from || '/';
+                naviagte(destination);
 
             }).catch((error) => {
 
@@ -42,7 +43,7 @@ const [isLoading, setIsLoading] = useState(true);
 
     //sign in with Email and password
     const signInWithEmailPass =(email,password,navigate,location)=>{
-    
+        console.log(auth)
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
@@ -85,7 +86,7 @@ const [isLoading, setIsLoading] = useState(true);
               
                 varifyEmail()
                 setUser(newuser);
-                saveUser(email, password,name, 'PUT')
+                saveUser(email, password,name, 'POST')
                 console.log(result.user);
                 setError('')
                 updateProfile(auth.currentUser, {

@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const LatestInterrior = () => {
+    const [interiorProjects, setProjectImage]=useState([]);
+
+    useEffect(()=>{
+       fetch('http://localhost:8000/latest_interiors')
+       .then(res=>res.json())
+       .then(data=>{setProjectImage(data)
+          
+    })
+       .catch((err)=>{
+           console.log(err.message);
+       })
+   })
 
     return (
         <div className=''>
@@ -11,78 +23,36 @@ const LatestInterrior = () => {
 
                     <h1 className="text-4xl uppercase font-bold from-current text-black mb-8">Latest Projects</h1>
                     <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
-                        <div className="bg-white">
-                            <div>
-                                <div className="shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105">
-                                    <NavLink to="/projectdetails">
-                                        <div style={{}}>
-                                            <img className="w-full" src="https://i.ibb.co/qs011f1/pexels-cleyder-duque-3637739.jpg" />
-                                            <div className="px-4 py-2 ">
-                                                <h1 className="text-xl font-gray-700 font-bold">A Modern Kitchen Room</h1>
-                                                <div className="flex justify-start  space-x-2 mt-2">
-                                                    <span>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" className=" h-4 w-4  text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                        </svg>
-                                                    </span>
-                                                    <h3 className=" text-sm text-gray-600 font-semibold mb-2">Gulshan, Bangladesh</h3>
+                       
+                         {
+                             interiorProjects.map(interiorProject=> 
+                                <div className="bg-white">
+                                <div>
+                                    <div className="shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105">
+                                        <NavLink to={`/projectdetails/${interiorProject._id}`}>
+                                            <div style={{}}>
+                                                <img className="w-full" src={interiorProject.img} />
+                                                <div className="px-4 py-2 ">
+                                                    <h1 className="text-xl font-gray-700 font-bold">{interiorProject.title}</h1>
+                                                    <div className="flex justify-start  space-x-2 mt-2">
+                                                        <span>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" className=" h-4 w-4  text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                            </svg>
+                                                        </span>
+                                                        <h3 className=" text-sm text-gray-600 font-semibold mb-2">{interiorProject.address}</h3>
+                                                    </div>
+                                                    {/* <p className="text-sm tracking-normal">Częstochowski pomnik Jana Pawła II wyjątkowo interesująco wpisuje się w poprzemysłowy krajobraz tego miasta o mocnych lewicowych, robotniczych i socjalistycznych tradycjach. Powstały w 2013 roku, uchodzi za najwyższego Karola Wojtyłę w Polsce.</p> */}
+                                                    {/* <button className="mt-12 w-full text-center bg-yellow-400 py-2 rounded-lg">Read more</button> */}
                                                 </div>
-                                                {/* <p className="text-sm tracking-normal">Częstochowski pomnik Jana Pawła II wyjątkowo interesująco wpisuje się w poprzemysłowy krajobraz tego miasta o mocnych lewicowych, robotniczych i socjalistycznych tradycjach. Powstały w 2013 roku, uchodzi za najwyższego Karola Wojtyłę w Polsce.</p> */}
-                                                {/* <button className="mt-12 w-full text-center bg-yellow-400 py-2 rounded-lg">Read more</button> */}
                                             </div>
-                                        </div>
-                                    </NavLink>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="bg-white">
-                            <div>
-                                <div className="shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105">
-                                    <div>
-                                        <img className="w-full" src="https://i.ibb.co/QdPTn92/pexels-jason-boyd-3209045.jpg" />
-                                        <div className="px-4 py-2 ">
-                                            <h1 className="text-xl font-gray-700 font-bold">Living  Room </h1>
-                                            <div className="flex justify-center  space-x-2 mt-2">
-                                                <span>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" className=" h-4 w-4  text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    </svg>
-                                                </span>
-                                                <h3 className="text-sm text-gray-600 font-semibold mb-2">Cox's Bazar,Bangladesh</h3>
-                                            </div>
-                                            {/* <p className="text-sm tracking-normal">Częstochowski pomnik Jana Pawła II wyjątkowo interesująco wpisuje się w poprzemysłowy krajobraz tego miasta o mocnych lewicowych, robotniczych i socjalistycznych tradycjach. Powstały w 2013 roku, uchodzi za najwyższego Karola Wojtyłę w Polsce.</p> */}
-                                            {/* <button className="mt-12 w-full text-center bg-yellow-400 py-2 rounded-lg">Read more</button> */}
-                                        </div>
+                                        </NavLink>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="bg-white">
-                            <div>
-                                <div className="shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105">
-                                    <div>
-                                        <img className="w-full" src="https://i.ibb.co/yqsqZSY/alberto-castillo-q-mx4m-Sk-K9zeo-unsplash-2-1.jpg" />
-                                        <div className="px-4 py-2 ">
-                                            <h1 className="text-xl font-gray-700 font-bold">Living Dining Room and Patio</h1>
-                                            <div className="flex justify-center  space-x-2 mt-2">
-                                                <span>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" className=" h-4 w-4  text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    </svg>
-                                                </span>
-                                                <h3 className="text-sm text-gray-600 font-semibold mb-2">Sylhet,Bangladesh</h3>
-                                            </div>
-                                            {/* <p className="text-sm tracking-normal">Częstochowski pomnik Jana Pawła II wyjątkowo interesująco wpisuje się w poprzemysłowy krajobraz tego miasta o mocnych lewicowych, robotniczych i socjalistycznych tradycjach. Powstały w 2013 roku, uchodzi za najwyższego Karola Wojtyłę w Polsce.</p> */}
-                                            {/* <button className="mt-12 w-full text-center bg-yellow-400 py-2 rounded-lg">Read more</button> */}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                                )
+                         }
 
                     </div>
                 </div>
