@@ -1,34 +1,31 @@
-import React, { useEffect } from 'react';
-import './Gallery.css';
+import React, { useEffect } from "react";
+import "./Gallery.css";
 
 const Gallery = () => {
-    const [images,setImages]=React.useState([])
-    useEffect(()=>{
-      fetch('http://localhost:8000/images')
-      .then(res=>res.json())
-      .then(data=>{
+  const [images, setImages] = React.useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8000/images")
+      .then((res) => res.json())
+      .then((data) => {
         console.log("gallery", data);
-        setImages(data)
-      })
-    },[])
-    return (
-        <div  className="max-w-5xl   mx-auto  my-32 upgallary">
-
-            <div className=" py-2">
-
-
-                {/* <h2 className="text-4xl py-4 rounded text-black font-bold ">GALLERY  </h2> */}
-                <h1 className="sm:text-4xl    ml-2 text-5xl uppercase pt-2 pb-8 font-bold title-font mb-2 text-black">Gallery</h1>
-               <div  className='gallery'>
-               {
-                         images.slice(0,10).map(image=> 
-                            <div className='pics' style={{width:"100%" }} key={image._id}>
-                            <img src={image.img}></img>
-                            </div>
-                        )
-                    }
-               </div>
-                {/* <div className="grid grid-cols-3 gap-4 my-3">
+        setImages(data);
+      });
+  }, []);
+  return (
+    <div className="max-w-5xl   mx-auto  my-32 upgallary">
+      <div className=" py-2">
+        {/* <h2 className="text-4xl py-4 rounded text-black font-bold ">GALLERY  </h2> */}
+        <h1 className="sm:text-4xl  sticky  ml-2 text-5xl uppercase pt-2 pb-8 font-bold title-font mb-2 text-black">
+          Gallery
+        </h1>
+        <div className="gallery">
+          {images.slice(0, 10).map((image) => (
+            <div className="pics" style={{ width: "100%" }} key={image._id}>
+              <img src={image.img}></img>
+            </div>
+          ))}
+        </div>
+        {/* <div className="grid grid-cols-3 gap-4 my-3">
                     
                     <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
                     <a className="block bg-center  bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
@@ -43,10 +40,9 @@ const Gallery = () => {
                     <a className="block bg-center bg-no-repeat bg-cover h-40 w-full rounded" href="" style={{ backgroundImage: "url('https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png')" }}></a>
 
                 </div> */}
+      </div>
 
-            </div>
-
-            {/* 
+      {/* 
             <div className="flex justify-between items-center bg-yellow-600 bg-opacity-20 px-10 py-5 rounded-full text-gray-500">
                 <button className="p-2 rounded-full bg-white">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-pink-500" viewBox="0 0 20 20" fill="currentColor">
@@ -74,37 +70,30 @@ const Gallery = () => {
                     </svg>
                 </button>
             </div> */}
+    </div>
+    // <div className='mx-auto'>
 
-        </div>
-        // <div className='mx-auto'>
+    //     <div className="mx-auto px-2 mx-32 my-1">
+    //         <h2 className="text-4xl bg-gray-700 p-4 rounded-sm text-white text-center">GALLERY  </h2>
+    //         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+    //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500 hover:bg-red-700"><img className="w-full rounded-sm bg-red-500" alt="" src="https://i.ibb.co/RCQftfk/pierre-chatel-innocenti-Al-Sl-E8-IAj-Zo-unsplash-1.png" /></div>
+    //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500 hover:bg-red-700"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/RCQftfk/pierre-chatel-innocenti-Al-Sl-E8-IAj-Zo-unsplash-1.png" /></div>
+    //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500 hover:bg-red-700"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/RCQftfk/pierre-chatel-innocenti-Al-Sl-E8-IAj-Zo-unsplash-1.png" /></div>
+    //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500 hover:bg-red-700"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/RCQftfk/pierre-chatel-innocenti-Al-Sl-E8-IAj-Zo-unsplash-1.png" /></div>
+    //         </div>
+    //     </div>
 
+    //     <div className="mx-auto px-2 mx-32 my-10">
+    //         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+    //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png" /></div>
+    //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png" /></div>
+    //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png" /></div>
+    //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png" /></div>
+    //         </div>
+    //     </div>
 
-        //     <div className="mx-auto px-2 mx-32 my-1">
-        //         <h2 className="text-4xl bg-gray-700 p-4 rounded-sm text-white text-center">GALLERY  </h2>
-        //         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
-        //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500 hover:bg-red-700"><img className="w-full rounded-sm bg-red-500" alt="" src="https://i.ibb.co/RCQftfk/pierre-chatel-innocenti-Al-Sl-E8-IAj-Zo-unsplash-1.png" /></div>
-        //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500 hover:bg-red-700"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/RCQftfk/pierre-chatel-innocenti-Al-Sl-E8-IAj-Zo-unsplash-1.png" /></div>
-        //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500 hover:bg-red-700"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/RCQftfk/pierre-chatel-innocenti-Al-Sl-E8-IAj-Zo-unsplash-1.png" /></div>
-        //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500 hover:bg-red-700"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/RCQftfk/pierre-chatel-innocenti-Al-Sl-E8-IAj-Zo-unsplash-1.png" /></div>
-        //         </div>
-        //     </div>
-
-
-
-
-        //     <div className="mx-auto px-2 mx-32 my-10">
-        //         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
-        //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png" /></div>
-        //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png" /></div>
-        //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png" /></div>
-        //             <div className="flex justify-center text-6xl border-1 border-gray-300 rounded-sm p-2 bg-gray-500"><img className="w-full rounded-sm" alt="" src="https://i.ibb.co/fxSnKj2/bernard-hermant-6ft-Zu-O-b64-unsplash-1.png" /></div>
-        //         </div>
-        //     </div>
-
-
-        // </div>
-
-    );
+    // </div>
+  );
 };
 
 export default Gallery;

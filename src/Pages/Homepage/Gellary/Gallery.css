@@ -9,6 +9,9 @@
   width: 0px;
 }
 
+.pics:hover {
+  opacity: 0.7;
+}
 .gallery {
   -webkit-column-count: 3;
   -moz-column-count: 3;

@@ -13,10 +13,11 @@ const Navigation = () => {
                     </div>
                     <div className="flex items-center">
                         <nav className="font-sen text-gray-800 dark:text-white uppercase text-lg lg:flex items-center hidden">
-                            <NavLink to="" className="py-2 px-6 flex">
+                           <NavLink to="" className="py-2 px-6 flex">
                                 Home
-                            </NavLink>
-                            <NavLink to="" className="py-2 px-6 flex">
+                           </NavLink>
+                            
+                             <NavLink to="" className="py-2 px-6 flex">
                                 Watch
                             </NavLink>
                             <NavLink to="" className="py-2 px-6 flex">

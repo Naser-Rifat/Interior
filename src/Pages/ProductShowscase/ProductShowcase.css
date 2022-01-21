@@ -4,6 +4,17 @@
 .slick-next:before {
   color: black !important;
 }
-.productsimg:hover {
-  background-size: "cover" !important;
+.productsimg {
+  background-blend-mode: overlay;
+  background-position: center center;
+ 
+}
+.productsimg:hover{
+  -moz-box-shadow:    inset  0 -800px 800px -800px #fff;
+  -webkit-box-shadow: inset  0 -800px 800px -800px #fff;
+   box-shadow:        inset  0 -1100px 1000px -900px #fff;
+    
+  }
+.opacitycontrol:hover{
+ opacity:.9;
 }
