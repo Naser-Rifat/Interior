@@ -19,7 +19,8 @@ const LatestInterrior = () => {
     <div id="latestproject" className="">
       <div className="min-h-screen bg-white flex justify-center items-center ">
         <div className="lg:mx-40 mx-auto    rounded-xl">
-          <h1 className="text-4xl uppercase font-bold from-current text-black mb-8">
+          <h1 className="text-4xl uppercase font-medium from-current text-black mb-8">
+            <hr className="border-2 border-neutral-800 w-16 mr-2 mb-3 font-bold inline-block" />
             Latest Projects
           </h1>
           <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0">

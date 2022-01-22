@@ -1,9 +1,9 @@
 .upgallary {
   height: 1000px;
-  /* overflow: hidden; */
-  overflow: scroll;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
+  /* overflow: scroll; */
+  /* overflow-x: hidden;
+  overflow-y: auto; */
 }
 .upgallary::-webkit-scrollbar {
   width: 0px;

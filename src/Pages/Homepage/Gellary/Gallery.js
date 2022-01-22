@@ -15,7 +15,8 @@ const Gallery = () => {
     <div className="max-w-5xl   mx-auto  my-32 upgallary">
       <div className=" py-2">
         {/* <h2 className="text-4xl py-4 rounded text-black font-bold ">GALLERY  </h2> */}
-        <h1 className="sm:text-4xl  sticky  ml-2 text-5xl uppercase pt-2 pb-8 font-bold title-font mb-2 text-black">
+        <h1 className="sm:text-4xl    ml-2 text-5xl uppercase pt-2 pb-8 font-medium title-font mb-2 text-black">
+          <hr className="border-2 border-neutral-800  w-16 ml-2 mr-2 mb-3 font-bold inline-block" />
           Gallery
         </h1>
         <div className="gallery">

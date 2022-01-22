@@ -7,7 +7,8 @@ const Services = () => {
         <div className=" container px-5 py-24 mx-auto">
           <div className="flex flex-wrap w-full mb-8">
             <div className="w-full mb-6 lg:mb-0">
-              <h1 className="sm:text-4xl text-5xl uppercase  font-bold title-font mb-2 text-black">
+              <h1 className="sm:text-4xl text-5xl uppercase  font-medium title-font mb-2 text-black">
+                <hr className="border-2 border-neutral-800 w-16 mr-2 mb-3 font-bold inline-block" />
                 Services
               </h1>
               {/* <div className="h-1 mx-auto r w-20 bg-indigo-500 rounded"></div> */}

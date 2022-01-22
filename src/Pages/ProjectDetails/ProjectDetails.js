@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import Footer from "../Shared/Footer";
+import Navigation from "../Shared/Navigation";
 
 const ProjectDetails = () => {
   const [projectdetails, setProjectDetails] = useState({});
@@ -19,6 +21,7 @@ const ProjectDetails = () => {
   });
   return (
     <div>
+      <Navigation></Navigation>
       <div
         style={{ width: "100%", backgroundColor: "#F3F4F6" }}
         className=" mx-auto px-4 sm:px-6 lg:px-8"
@@ -102,19 +105,7 @@ const ProjectDetails = () => {
                     {projectdetails.title}
                   </p>
                   <p className="text-xl text-black">
-                    Since our humble beginnings in 2006, We has significantly
-                    expanded its collection of exclusive lamps. Today we are
-                    proud to present you our best lighting design solutions. Our
-                    collection is updated every day with beautiful solutions and
-                    we are glad that you, our customers, support us on way!
-                    Since our humble beginnings in 2006, We has significantly
-                    expanded its collection of exclusive lamps. Today we are
-                    proud to present you our best lighting design solutions. Our
-                    collection is updated every day with beautiful solutions and
-                    we are glad that you, our customers, support us on way! Our
-                    collection is updated every day with beautiful solutions.
-                    Aenean commodo elit erat, vel hendrerit lacus euismod vel.
-                    Maecenas sodales pretium felis, quis rutrum est pellentesque
+                    {projectdetails.description}
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-6 border-t-2  border-gray-200 mt-12 pt-12 pb-2">
@@ -193,45 +184,13 @@ const ProjectDetails = () => {
                   </li>
                 </ul>
               </div>
-              {/* <img className="w-2/3 h-2/3 object-cover rounded-lg overflow-hidden" src="https://images.unsplash.com/photo-1620371350502-999e9a7d80a4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=670&q=80" /> */}
             </div>
           </div>
         </section>
-        {/* <div className="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
-                    <div className="md:flex items-center -mx-10">
-                        <div className="w-full md:w-1/2 px-10 mb-10 md:mb-0">
-                            <div className="relative">
-                                <img src={projectdetails.img} className="w-full relative z-10" alt="" />
-                                <div className="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
-                            </div>
-                        </div>
-                        <div className="w-full md:w-1/2 px-10">
-                            <div className="mb-10">
-                                <h1 className="font-bold uppercase text-2xl mb-5">Mens's Ragged <br />Waterproof Jacket</h1>
-                                <p className="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Eos, voluptatum dolorum! Laborum blanditiis consequatur, voluptates, sint enim fugiat saepe, dolor fugit, magnam explicabo eaque quas id quo porro dolorum facilis... <a href="#" className="opacity-50 text-gray-900 hover:opacity-100 inline-block text-xs leading-none border-b border-gray-900">MORE <i className="mdi mdi-arrow-right"></i></a></p>
-                            </div>
-                            <div>
-                                <div className="inline-block align-bottom mr-5">
-                                    <span className="text-2xl leading-none align-baseline">$</span>
-                                    <span className="font-bold text-5xl leading-none align-baseline">59</span>
-                                    <span className="text-2xl leading-none align-baseline">.99</span>
-                                </div>
-                                <div className="inline-block align-bottom">
-                                    <button className="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-3 font-semibold"><i className="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
       </div>
 
-      <div className="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
-        {/* <div>
-                    <a title="Buy me a beer" href="https://www.buymeacoffee.com/scottwindon" target="_blank" className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12" rel="noreferrer">
-                        <img className="object-cover object-center w-full h-full rounded-full" src="https://i.pinimg.com/originals/60/fd/e8/60fde811b6be57094e0abc69d9c2622a.jpg" />
-                    </a>
-                </div> */}
-      </div>
+      <div className="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10"></div>
+      <Footer></Footer>
     </div>
   );
 };

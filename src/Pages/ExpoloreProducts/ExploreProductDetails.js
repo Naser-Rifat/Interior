@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
+import Navigation from "../../../src/Pages/Shared/Navigation";
 import { useAuth } from "../../Hooks/useAuth";
+import Footer from "../Shared/Footer";
 
 const ExploreProductDetails = () => {
   const { user, setIsloading } = useAuth();
@@ -27,6 +29,7 @@ const ExploreProductDetails = () => {
 
   return (
     <div>
+      <Navigation></Navigation>
       <div className="antialiased">
         <div className="py-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -467,6 +470,7 @@ const ExploreProductDetails = () => {
           ))}
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

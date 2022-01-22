@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import Footer from "../Shared/Footer";
+import Navigation from "../Shared/Navigation";
 import "./ExploreProducts.css";
 
 const ExploreProducts = () => {
@@ -18,6 +20,7 @@ const ExploreProducts = () => {
   });
   return (
     <div>
+      <Navigation></Navigation>
       <div className="">
         <div
           className="w-full mx-auto rounded-xl  shadow-sm p-10 text-gray-800 relative overflow-hidden resize-x min-w-80 max-w-3xl"
@@ -35,14 +38,6 @@ const ExploreProducts = () => {
               <i className="mdi mdi-magnify"></i>
             </button>
           </div>
-          {/* <div className="absolute top-0 left-0 w-full h-2 flex">
-            <div className="h-2 bg-blue-500 flex-1"></div>
-            <div className="h-2 bg-red-500 flex-1"></div>
-            <div className="h-2 bg-yellow-500 flex-1"></div>
-            <div className="h-2 bg-blue-500 flex-1"></div>
-            <div className="h-2 bg-green-500 flex-1"></div>
-            <div className="h-2 bg-red-500 flex-1"></div>
-          </div> */}
         </div>
       </div>
       <main className="my-8">
@@ -91,104 +86,7 @@ const ExploreProducts = () => {
       <div className="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
         <div></div>
       </div>
-      {/* <div className="flex items-center p-6 space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
-        <div className="flex bg-gray-100 p-4 w-72 space-x-4 rounded-lg">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 opacity-30"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-          <input
-            className="bg-gray-100 outline-none"
-            type="text"
-            placeholder="Article name or keyword..."
-          />
-        </div>
-        <div className="flex py-3 px-4 rounded-lg text-gray-500 font-semibold cursor-pointer">
-          <span>All categorie</span>
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </div>
-        <div className="bg-red-600 py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer">
-          <span>Search</span>
-        </div>
-      </div> */}
-      {/* <main className="my-8">
-        <div className="container mx-auto px-6">
-           
-            <div className="mt-16">
-                <h3 className="text-gray-600 text-2xl font-medium">More Products</h3>
-                <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-                    <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
-                        <div className="flex items-end justify-end h-56 w-full bg-cover" style={{backgroundImage: "url('https://images.unsplash.com/photo-1563170351-be82bc888aa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=376&q=80')"}}>
-                            <button className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                                <svg className="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                            </button>
-                        </div>
-                        <div className="px-5 py-3">
-                            <h3 className="text-gray-700 uppercase">Chanel</h3>
-                            <span className="text-gray-500 mt-2">$12</span>
-                        </div>
-                    </div>
-                    <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
-                        <div className="flex items-end justify-end h-56 w-full bg-cover" style={{backgroundImage: "url('https://images.unsplash.com/photo-1563170351-be82bc888aa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=376&q=80')"}}>
-                            <button className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                                <svg className="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                            </button>
-                        </div>
-                        <div className="px-5 py-3">
-                            <h3 className="text-gray-700 uppercase">Man Mix</h3>
-                            <span className="text-gray-500 mt-2">$12</span>
-                        </div>
-                    </div>
-                    <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
-                        <div className="flex items-end justify-end h-56 w-full bg-cover" style={{backgroundImage: "url('https://images.unsplash.com/photo-1563170351-be82bc888aa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=376&q=80')"}}>
-                            <button className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                                <svg className="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                            </button>
-                        </div>
-                        <div className="px-5 py-3">
-                            <h3 className="text-gray-700 uppercase">Classic watch</h3>
-                            <span className="text-gray-500 mt-2">$12</span>
-                        </div>
-                    </div>
-                    <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
-                        <div className="flex items-end justify-end h-56 w-full bg-cover" style={{backgroundImage: "url('https://images.unsplash.com/photo-1563170351-be82bc888aa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=376&q=80')"}}>
-                            <button className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                                <svg className="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                            </button>
-                        </div>
-                        <div className="px-5 py-3">
-                            <h3 className="text-gray-700 uppercase">woman mix</h3>
-                            <span className="text-gray-500 mt-2">$12</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main> */}
+      <Footer></Footer>
     </div>
   );
 };
