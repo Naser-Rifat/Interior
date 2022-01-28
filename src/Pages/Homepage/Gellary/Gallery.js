@@ -4,7 +4,7 @@ import "./Gallery.css";
 const Gallery = () => {
   const [images, setImages] = React.useState([]);
   useEffect(() => {
-    fetch("http://pure-plains-03469.herokuapp.com/images")
+    fetch("https://pure-plains-03469.herokuapp.com/images")
       .then((res) => res.json())
       .then((data) => {
         console.log("gallery", data);

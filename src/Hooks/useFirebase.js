@@ -145,7 +145,7 @@ const useFirebase = () => {
 
   const saveUser = (email, password, displayName, method) => {
     const user = { email, password, displayName };
-    fetch("http://pure-plains-03469.herokuapp.com/user", {
+    fetch("https://pure-plains-03469.herokuapp.com/user", {
       method: method,
       headers: {
         "content-type": "application/json",

@@ -9,7 +9,7 @@ const ProjectDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://pure-plains-03469.herokuapp.com/latest_interiors/${id}`)
+    fetch(`https://pure-plains-03469.herokuapp.com/latest_interiors/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
