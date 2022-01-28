@@ -1,0 +1,20 @@
+.sub-menu {
+  display: none;
+}
+.menu-bar li:hover .sub-menu {
+  display: block;
+  position: absolute;
+  color: black;
+  border-radius: 2px solid black;
+  /* margin-top: 10px; */
+}
+
+.menu-bar li:hover .sub-menu ul {
+  background: gray;
+  padding: 5px;
+}
+.menu-bar li:hover .sub-menu ul li:hover {
+  background-color: blanchedalmond;
+
+  border-radius: 1px dot black;
+}

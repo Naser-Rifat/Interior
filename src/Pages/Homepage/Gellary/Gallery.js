@@ -4,7 +4,7 @@ import "./Gallery.css";
 const Gallery = () => {
   const [images, setImages] = React.useState([]);
   useEffect(() => {
-    fetch("http://localhost:8000/images")
+    fetch("http://localhost:7000/images")
       .then((res) => res.json())
       .then((data) => {
         console.log("gallery", data);

@@ -1,6 +1,5 @@
-import LogoutIcon from "@mui/icons-material/Logout";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Button } from "@mui/material";
+import { Avatar, Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import PropTypes from "prop-types";
 import * as React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { useAuth } from "../../Hooks/useAuth";
 
 const drawerWidth = 240;
@@ -25,19 +24,37 @@ function Dashboard(props) {
   };
 
   const drawer = (
-    <div className="bg-gray-900 h-full">
-      <Toolbar />
+    <div className="bg-gray-100  h-full">
+      <div className="uppercase text-gray-800 dark:text-white font-black text-2xl my-4 mx-5">
+        INTERIOR.US
+      </div>
+      {/* <Toolbar /> */}
+
       <Divider />
+      {/* <div>
+        <div>
+          {user?.photoURL && (
+            <img
+              className="ml-20 my-3"
+              style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+              src={user.photoURL}
+              alt=""
+            />
+          )}
+        </div>
+
+        <div>
+          {" "}
+          {user && <div className="text-black ml-7">{user.displayName} </div>}
+        </div>
+      </div> */}
 
       <Box sx={{ textAlign: "left", m: 2 }}>
         <NavLink to="/home" style={{ textDecoration: "none" }}>
           {" "}
-          {/* <SvgIcon className="ms-1">
-            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-          </SvgIcon>{" "} */}
           <Button
             style={{
-              color: "white",
+              color: "black",
               //   marginLeft: "0px",
               //   paddingLeft: "0px",
               //   marginTop: "8px",
@@ -47,57 +64,44 @@ function Dashboard(props) {
           </Button>
         </NavLink>
         <br />
-        <NavLink to={`${""}`} style={{ textDecoration: "none" }}>
+        <NavLink to={`dashboadhome`} style={{ textDecoration: "none" }}>
           {" "}
-          <Button style={{ color: "white" }}>Dashboard</Button>
+          <Button style={{ color: "black" }}>DashBoard Home</Button>
+        </NavLink>{" "}
+        <NavLink to={`/payment`} style={{ textDecoration: "none" }}>
+          {" "}
+          <Button style={{ color: "black" }}>Payment</Button>
         </NavLink>{" "}
         <br />
-        <NavLink to={`${""}/myorders`} style={{ textDecoration: "none" }}>
+        <NavLink to={`/reviews`} style={{ textDecoration: "none" }}>
           {" "}
-          <Button style={{ color: "white" }}>My Orders</Button>
-        </NavLink>{" "}
-        <br />
-        <NavLink to={`${""}/payment`} style={{ textDecoration: "none" }}>
-          {" "}
-          <Button style={{ color: "white" }}>Payment</Button>
-        </NavLink>{" "}
-        <br />
-        <NavLink to={`${""}/reviews`} style={{ textDecoration: "none" }}>
-          {" "}
-          <Button style={{ color: "white" }}>Review</Button>
+          <Button style={{ color: "black" }}>Review</Button>
         </NavLink>{" "}
         <br />
         <Box>
-          <NavLink
-            to={`${""}/manageallorders`}
-            style={{ textDecoration: "none" }}
-          >
+          <NavLink to="manageallorders" style={{ textDecoration: "none" }}>
             {" "}
-            <Button style={{ color: "white" }}>Manage All Orders</Button>
+            <Button style={{ color: "black" }}>Manage All Orders</Button>
           </NavLink>{" "}
           <br />
-          <NavLink to={`${""}/addadmin`} style={{ textDecoration: "none" }}>
+          <NavLink to={`/addadmin`} style={{ textDecoration: "none" }}>
             {" "}
-            <Button style={{ color: "white" }}>Add An Admin</Button>
+            <Button style={{ color: "black" }}>Add An Admin</Button>
           </NavLink>{" "}
           <br />
-          <NavLink to={`${""}/addproduct`} style={{ textDecoration: "none" }}>
+          <NavLink to={`/addproduct`} style={{ textDecoration: "none" }}>
             {" "}
-            <Button style={{ color: "white" }}>Add Product</Button>
+            <Button style={{ color: "black" }}>Add Product</Button>
           </NavLink>{" "}
           <br />
-          <NavLink
-            to={`${""}/manageproducts`}
-            style={{ textDecoration: "none" }}
-          >
+          <NavLink to={`/manageproducts`} style={{ textDecoration: "none" }}>
             {" "}
-            <Button style={{ color: "white" }}>Manage Products</Button>
+            <Button style={{ color: "black" }}>Manage Products</Button>
           </NavLink>{" "}
           <br />
         </Box>
-        <Button onClick={""} style={{ color: "white" }}>
+        <Button onClick={""} style={{ color: "black" }}>
           {" "}
-          <LogoutIcon className="me-2" />
           Logout
         </Button>
       </Box>
@@ -110,7 +114,7 @@ function Dashboard(props) {
   return (
     <>
       <Box sx={{ display: "flex" }}>
-        <CssBaseline />
+        <CssBaseline className=" drop-shadow-none	 " />
         <AppBar
           position="fixed"
           sx={{
@@ -118,9 +122,8 @@ function Dashboard(props) {
             ml: { sm: `${drawerWidth}px` },
           }}
         >
-          <Toolbar className="bg-gray-900 px- ">
+          <Toolbar className="bg-gray-100  border-b-4 border-pink-100 ">
             <IconButton
-              color="inherit"
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
@@ -128,28 +131,44 @@ function Dashboard(props) {
             >
               <MenuIcon />
             </IconButton>
-            {/* <Typography variant="h6" noWrap component="div">
-              Dashboard
-            </Typography> */}
-            <nav className=" ml-96 text-gray-800 dark:text-white uppercase text-medium lg:flex items-center hidden">
-              <NavLink to="" className="py-2 text-white  px-6 flex">
+            <div className="grid grid-cols-9  gap-5 w-full">
+              <div className=" col-span-7"></div>
+              <div className="flex col-span-2">
+                <span className=" mt-3">
+                  <i className="far fa-bell mx-4 text-base text-gray-500 inline"></i>
+                </span>
+                <Avatar
+                  className="mt-2"
+                  sx={{ width: 32, height: 32 }}
+                  src={user?.photoURL}
+                  alt="user"
+                />
+                {user && (
+                  <div className="text-black w-full mt-3 ml-2">
+                    {user?.displayName}
+                  </div>
+                )}
+              </div>
+            </div>
+            {/* <nav className=" 	 text-gray-800 dark:text-black uppercase text-medium lg:flex items-center hidden">
+              <NavLink to="" className="py-2 text-black  px-6 flex">
                 Home
               </NavLink>
 
-              <NavLink to="" className="py-2 text-white px-6 flex">
+              <NavLink to="" className="py-2 text-black px-6 flex">
                 Watch
               </NavLink>
-              <NavLink to="" className="py-2 text-white px-6 flex">
+              <NavLink to="" className="py-2 text-black px-6 flex">
                 Product
               </NavLink>
-              <NavLink to="" className="py-2 text-white px-6 flex">
+              <NavLink to="" className="py-2 text-black px-6 flex">
                 Contact
               </NavLink>
-              {/* <NavLink to="/dashboard" className="py-2 px-6 flex">
+              <NavLink to="/dashboard" className="py-2 px-6 flex">
                 DashBoard
-              </NavLink> */}
+              </NavLink> 
 
-              {user?.email ? (
+               {user?.email ? (
                 <button onClick={logout} className="py-2 px-6 flex uppercase">
                   Logout
                 </button>
@@ -158,16 +177,18 @@ function Dashboard(props) {
                   {" "}
                   <button className="py-2 px-6 flex uppercase">Login</button>
                 </NavLink>
+              )} 
+              {user && (
+                <div className="text-black mr-3">{user.displayName} </div>
               )}
-              {user && <div className="text-black">{user.displayName} </div>}
               {user?.photoURL && (
                 <img
-                  style={{ borderRadius: "50%" }}
+                  style={{ width: "48px", height: "48px", borderRadius: "50%" }}
                   src={user.photoURL}
                   alt=""
                 />
               )}
-            </nav>
+            </nav> */}
           </Toolbar>
         </AppBar>
         <Box
@@ -217,6 +238,9 @@ function Dashboard(props) {
           }}
         >
           <Toolbar />
+
+          <Outlet />
+
           {/* <Switch>
             <Route exact path={path}>
               <DashboardHome></DashboardHome>

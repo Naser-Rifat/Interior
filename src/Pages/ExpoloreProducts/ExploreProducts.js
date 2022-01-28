@@ -8,7 +8,7 @@ const ExploreProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/products`)
+    fetch(`http://localhost:7000/products`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -18,6 +18,7 @@ const ExploreProducts = () => {
         console.log(err.message);
       });
   });
+
   return (
     <div>
       <Navigation></Navigation>
@@ -44,10 +45,10 @@ const ExploreProducts = () => {
         <div className="container mx-auto px-6">
           <div className="mt-16">
             <h3 className="text-gray-600 text-2xl font-medium">
-              More Products
+              Find Your Favourite Products
             </h3>
             <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-              {products.map((product) => (
+              {products?.slice(0, 20).map((product) => (
                 <NavLink to={`/productdetails/${product._id}`}>
                   <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
                     <div
@@ -72,14 +73,19 @@ const ExploreProducts = () => {
                     </div>
 
                     <div className="px-5 py-3">
-                      <h3 className="text-gray-700 uppercase">Chanel</h3>
-                      <span className="text-gray-500 mt-2">$12</span>
+                      <h3 className="text-gray-700 uppercase">
+                        {product?.title}
+                      </h3>
+                      <span className="text-gray-500 mt-2">
+                        {"$"}
+
+                        {product?.price}
+                      </span>
                     </div>
                   </div>
                 </NavLink>
               ))}
             </div>
-            {/* new section  */}
           </div>
         </div>
       </main>

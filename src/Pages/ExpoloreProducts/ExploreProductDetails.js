@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Navigation from "../../../src/Pages/Shared/Navigation";
@@ -7,21 +8,53 @@ import Footer from "../Shared/Footer";
 const ExploreProductDetails = () => {
   const { user, setIsloading } = useAuth();
   const { id } = useParams();
+  const [value, setValue] = useState({});
   const [product, setProduct] = useState({});
   const [products, setProducts] = useState([]);
   const [state, setState] = useState(false);
 
   // console.log(item);
 
+  const handlevalue = (e) => {
+    const value = e.target.value;
+    console.log(value);
+    setValue(value);
+  };
+
+  const onsubmit = () => {
+    const orderdata = {
+      value: value,
+      date: new Date(),
+      name: user?.displayName,
+      email: user.email,
+      price: product.price,
+      model: product.model,
+      title: product.title,
+      status: "pending",
+      img: product.img,
+    };
+    console.log(orderdata);
+
+    axios
+      .post("http://localhost:7000/orders", orderdata)
+
+      .then((res) => {
+        console.log(res);
+        if (res.data.insertedId) {
+          alert(" Order Added");
+        }
+      });
+  };
+
   useEffect(() => {
-    fetch(`http://localhost:8000/products/${id}`)
+    fetch(`http://localhost:7000/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data))
       .finally(() => setIsloading(false));
   }, [state]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/products`)
+    fetch(`http://localhost:7000/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .finally(() => setIsloading(false));
@@ -32,6 +65,7 @@ const ExploreProductDetails = () => {
       <Navigation></Navigation>
       <div className="antialiased">
         <div className="py-6">
+          {/*  Breadcrumbs -start  */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center space-x-2 text-gray-400 text-sm">
               <a href="#" className="hover:underline hover:text-gray-600">
@@ -54,7 +88,7 @@ const ExploreProductDetails = () => {
                 </svg>
               </span>
               <a href="#" className="hover:underline hover:text-gray-600">
-                Electronics
+                Product
               </a>
               <span>
                 <svg
@@ -72,9 +106,10 @@ const ExploreProductDetails = () => {
                   />
                 </svg>
               </span>
-              <span>Headphones</span>
+              <span>ProductsDetails</span>
             </div>
           </div>
+          {/*  Breadcrumbs -End  */}
 
           <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
             <div className="flex flex-col md:flex-row -mx-4">
@@ -99,12 +134,12 @@ const ExploreProductDetails = () => {
               </div>
               <div className="md:flex-1 px-4">
                 <h2 className="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">
-                  Lorem ipsum dolor, sit amet consectetur, adipisicing elit.
+                  {product.title}
                 </h2>
                 <p className="text-gray-500 text-sm">
                   By{" "}
                   <a href="#" className="text-black-600 hover:underline">
-                    ABC Company
+                    INTERIOR.US
                   </a>
                 </p>
 
@@ -113,7 +148,7 @@ const ExploreProductDetails = () => {
                     <div className="rounded-lg bg-gray-100 flex py-2 px-3">
                       <span className="text-black-400 mr-1 mt-1">$</span>
                       <span className="font-bold text-black-600 text-3xl">
-                        25
+                        {product.price}
                       </span>
                     </div>
                   </div>
@@ -127,11 +162,7 @@ const ExploreProductDetails = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-500">
-                  Lorem ipsum, dolor sit, amet consectetur adipisicing elit.
-                  Vitae exercitationem porro saepe ea harum corrupti vero id
-                  laudantium enim, libero blanditiis expedita cupiditate a est.
-                </p>
+                <p className="text-gray-500">{product.description}</p>
 
                 <div className="flex py-4 space-x-4">
                   <div className="relative">
@@ -139,26 +170,40 @@ const ExploreProductDetails = () => {
                       Qty
                     </div>
                     <select className="cursor-pointer appearance-none rounded-xl border border-gray-200 pl-4 pr-8 h-14 flex items-end pb-1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      <option onClick={handlevalue} value="1">
+                        1
+                      </option>
+                      <option onClick={handlevalue} value="2">
+                        2
+                      </option>
+                      <option onClick={handlevalue} value="3">
+                        3
+                      </option>
+                      <option onClick={handlevalue} value="4">
+                        4
+                      </option>
+                      <option onClick={handlevalue} value="5">
+                        5
+                      </option>
                     </select>
                   </div>
 
+                  {/* <NavLink to={`/details/${product?._id}`}>  */}
                   <button
+                    onClick={onsubmit}
                     type="button"
                     className="h-14 px-6 py-2 font-semibold rounded-xl bg-orange-400 hover:bg-orange-500 text-white"
                   >
                     Add to Cart
                   </button>
+                  {/* </NavLink> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       {/* ratting setion */}
 
       <div className="lg:ml-28  bg-white  rounded-lg  px-4 py-4 max-w-sm ">
@@ -236,6 +281,7 @@ const ExploreProductDetails = () => {
           </div>
         </div>
       </div>
+
       {/* Review section  */}
       <div className=" lg:mx-16  flex items-start mx-5 justify-content-center">
         <div className="flex-shrink-0">
@@ -429,6 +475,7 @@ const ExploreProductDetails = () => {
           </div>
         </div>
       </div>
+
       {/* Products  */}
       <div className=" mt-16  lg:mx-36">
         <h3 className="text-gray-600 text-2xl smWidth font-medium">

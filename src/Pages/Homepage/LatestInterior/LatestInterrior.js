@@ -5,7 +5,7 @@ const LatestInterrior = () => {
   const [interiorProjects, setProjectImage] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/latest_interiors")
+    fetch("http://localhost:7000/latest_interiors")
       .then((res) => res.json())
       .then((data) => {
         setProjectImage(data);

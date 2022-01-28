@@ -16,7 +16,7 @@ const ProductShowcase = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:8000/productsimages")
+    fetch("http://localhost:7000/productsimages")
       .then((res) => res.json())
       .then((data) => setProductImages(data));
   }, []);

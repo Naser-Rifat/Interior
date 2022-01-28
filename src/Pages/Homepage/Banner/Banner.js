@@ -7,8 +7,9 @@ const Banner = () => {
   return (
     <div>
       <Navigation></Navigation>
-      <main className="dark:bg-gray-800 bg-white relative overflow-hidden lg:h-screen">
-        <div className=" bg-white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
+
+      <main className="dark:bg-gray-800 bg-transparent relative overflow-hidden lg:h-screen">
+        <div className="bg-transparent	 dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
           <div className="container mx-auto px-6 flex relative py-16">
             <div className="text-start sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
               <span className="w-20 h-2 bg-gray-800 dark:bg-white mb-12"></span>

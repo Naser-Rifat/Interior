@@ -1,0 +1,86 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap"); */
+
+body {
+  background: #eeeeee;
+  font-family: "Hind Siliguri", sans-serif;
+}
+.btn {
+  padding: 3px 5px;
+  color: #0063ff;
+}
+.card {
+  width: 300px;
+  border: none;
+  border-radius: 15px;
+}
+
+.adiv {
+  background: #0063ff;
+  border-radius: 15px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  font-size: 12px;
+  height: 46px;
+}
+
+img {
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.fas {
+  cursor: pointer;
+}
+
+.fa-chevron-left {
+  color: #fff;
+}
+
+h6 {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+small {
+  font-size: 10px;
+  color: #898989;
+}
+
+.form-control {
+  border: none;
+  background: #f6f7fb;
+  font-size: 12px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  background: #f6f7fb;
+}
+
+.form-control::placeholder {
+  font-size: 12px;
+  color: #b8b9bd;
+}
+
+.btn-primary {
+  background: #0063ff;
+  padding: 4px 0 7px;
+  border: none;
+}
+
+.btn-primary:focus {
+  box-shadow: none;
+}
+
+.btn-primary span {
+  font-size: 12px;
+  color: #a6dcff;
+}
+
+p.mt-3 {
+  font-size: 11px;
+  color: #b8b9bd;
+  cursor: pointer;
+}

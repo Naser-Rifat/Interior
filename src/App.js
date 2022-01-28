@@ -1,10 +1,17 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
+import Orders from "./Pages/Account/Orders";
+import Payment from "./Pages/Account/Payment";
+import Reviews from "./Pages/Account/Reviews";
+import ServiceFeedback from "./Pages/Account/ServiceFeedback";
+import Stripe from "./Pages/Account/Stripe";
 import Dashboard from "./Pages/DashBoard/Dashboard";
+import Dashboardhome from "./Pages/DashBoard/Dashboardhome";
+import Manageorders from "./Pages/DashBoard/Manageorders";
 import ExploreProductDetails from "./Pages/ExpoloreProducts/ExploreProductDetails";
 import ExploreProducts from "./Pages/ExpoloreProducts/ExploreProducts";
-import Home from "./Pages/Homepage/Home/Home";
+import Homepage from "./Pages/Homepage/Homepage.js/Home";
 import Login from "./Pages/Login/LoginForm/Login";
 import SignUpForm from "./Pages/Login/SignUpForm/SignUpForm";
 import ProjectDetails from "./Pages/ProjectDetails/ProjectDetails";
@@ -15,9 +22,9 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home> </Home>} />
+            <Route path="/" element={<Homepage></Homepage>} />
 
-            <Route path="/home" element={<Home> </Home>} />
+            <Route path="/home" element={<Homepage> </Homepage>} />
 
             <Route path="/login" element={<Login> </Login>} />
             <Route
@@ -32,7 +39,26 @@ function App() {
               path="/productdetails/:id"
               element={<ExploreProductDetails></ExploreProductDetails>}
             />
-            <Route path="/dashboard" element={<Dashboard></Dashboard>} />
+            <Route path="/myorders" element={<Orders></Orders>} />
+            <Route path="/productreviews" element={<Reviews></Reviews>} />
+            <Route path="/payment" element={<Payment></Payment>} />
+            <Route path="/stripe" element={<Stripe></Stripe>} />
+            <Route
+              path="/servicefeedback"
+              element={<ServiceFeedback></ServiceFeedback>}
+            />
+
+            <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+              <Route path="myorders" element={<Orders></Orders>}></Route>
+              <Route
+                path="dashboadhome"
+                element={<Dashboardhome></Dashboardhome>}
+              ></Route>
+              <Route
+                path="manageallorders"
+                element={<Manageorders></Manageorders>}
+              ></Route>
+            </Route>
 
             <Route path="/signup" element={<SignUpForm> </SignUpForm>} />
           </Routes>
