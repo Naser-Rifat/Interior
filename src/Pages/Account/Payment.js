@@ -19,7 +19,7 @@ const Payment = () => {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:7000/orders?email=${user?.email}`)
+    fetch(`http://pure-plains-03469.herokuapp.com/orders?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user?.email]);

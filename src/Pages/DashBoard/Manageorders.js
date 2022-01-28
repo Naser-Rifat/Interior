@@ -7,7 +7,7 @@ const Manageorders = () => {
   const [state, setState] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:7000/orders/all")
+    fetch("http://pure-plains-03469.herokuapp.com/orders/all")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [state]);
@@ -15,7 +15,7 @@ const Manageorders = () => {
   const handleDelete = (id) => {
     const procced = window.confirm("Are you sure ?");
     if (procced) {
-      fetch(`http://localhost:7000/orders/${id}`, {
+      fetch(`http://pure-plains-03469.herokuapp.com/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -30,7 +30,7 @@ const Manageorders = () => {
   };
 
   const handleConfirm = (id) => {
-    fetch(`http://localhost:7000/orders/${id}`, {
+    fetch(`http://pure-plains-03469.herokuapp.com/orders/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -40,7 +40,7 @@ const Manageorders = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          fetch("http://localhost:7000/orders")
+          fetch("http://pure-plains-03469.herokuapp.com/orders")
             .then((res) => res.json())
             .then((data) => setOrders(data));
           setState(true);
