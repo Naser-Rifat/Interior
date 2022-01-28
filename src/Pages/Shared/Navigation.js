@@ -40,7 +40,7 @@ const Navigation = () => {
               <NavLink to="" className="py-2 px-6 flex">
                 Watch
               </NavLink>
-              <NavLink to="" className="py-2 px-6 flex">
+              <NavLink to="/exploreproducts" className="py-2 px-6 flex">
                 Product
               </NavLink>
               <NavLink to="" className="py-2 px-6 flex">
