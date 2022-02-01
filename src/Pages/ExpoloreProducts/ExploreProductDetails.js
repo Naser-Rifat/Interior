@@ -12,6 +12,7 @@ const ExploreProductDetails = () => {
   const [product, setProduct] = useState({});
   const [products, setProducts] = useState([]);
   const [state, setState] = useState(false);
+  // const [btnvalue, setBtnvalue] = useState("Add to cart");
 
   // console.log(item);
 
@@ -21,7 +22,20 @@ const ExploreProductDetails = () => {
     setValue(value);
   };
 
+  function dbounce(fn, delay) {
+    let timeoutID;
+    return function () {
+      if (timeoutID) {
+        clearTimeout(timeoutID);
+      }
+      timeoutID = setTimeout(() => {
+        fn();
+      }, delay);
+    };
+  }
+
   const onsubmit = () => {
+    // setBtnvalue("Added");
     const orderdata = {
       value: value,
       date: new Date(),
@@ -190,11 +204,12 @@ const ExploreProductDetails = () => {
 
                   {/* <NavLink to={`/details/${product?._id}`}>  */}
                   <button
-                    onClick={onsubmit}
+                    title="addToCart"
+                    onClick={dbounce(onsubmit, 500)}
                     type="button"
                     className="h-14 px-6 py-2 font-semibold rounded-xl bg-orange-400 hover:bg-orange-500 text-white"
                   >
-                    Add to Cart
+                    Add to cart
                   </button>
                   {/* </NavLink> */}
                 </div>

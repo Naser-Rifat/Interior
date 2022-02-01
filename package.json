@@ -6,6 +6,7 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@iconscout/react-unicons": "^1.1.6",
+    "@material-ui/icons": "^4.11.2",
     "@material/menu": "^13.0.0",
     "@mui/icons-material": "^5.3.0",
     "@mui/material": "^5.3.0",
