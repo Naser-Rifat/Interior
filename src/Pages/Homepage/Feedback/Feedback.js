@@ -1,10 +1,11 @@
 import { Rating } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import "./feedback.css";
 
 const Feedback = () => {
   const [feedback, setFeedback] = useState([]);
   useEffect(() => {
-    fetch(`https://pure-plains-03469.herokuapp.com/feedback`)
+    fetch(`http://localhost:7000/feedback`)
       .then((res) => res.json())
       .then((data) => setFeedback(data.reverse()));
   }, []);
@@ -22,7 +23,7 @@ const Feedback = () => {
               <img
                 alt="avatar"
                 className="w-20 rounded-full border-2 border-gray-300"
-                src="https://picsum.photos/seed/picsum/200"
+                src={customer.img}
               />
               <div id="header-text" className="leading-5 ml-6 sm">
                 <h4 id="name" className="text-xl font-semibold">
@@ -33,8 +34,13 @@ const Feedback = () => {
                 </h5>
               </div>
             </div>
-            <div id="quote">
-              <q className="italic text-gray-600">{customer.feedback}</q>
+            <div className="truncate" id="quote">
+              <q
+                style={{ textOverflow: "ellipsis" }}
+                className="italic text-gray-600"
+              >
+                {customer.feedback}
+              </q>
             </div>
             <Rating
               name="size-medium"

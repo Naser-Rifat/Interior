@@ -6,9 +6,13 @@ import Payment from "./Pages/Account/Payment";
 import Reviews from "./Pages/Account/Reviews";
 import ServiceFeedback from "./Pages/Account/ServiceFeedback";
 import Stripe from "./Pages/Account/Stripe";
+import AddAdmin from "./Pages/DashBoard/AddAdmin";
+import Addproduct from "./Pages/DashBoard/Addproduct";
 import Dashboard from "./Pages/DashBoard/Dashboard";
 import Dashboardhome from "./Pages/DashBoard/Dashboardhome";
+import ManageAllProducts from "./Pages/DashBoard/ManageAllProducts";
 import Manageorders from "./Pages/DashBoard/Manageorders";
+import PaymentList from "./Pages/DashBoard/PaymentList";
 import ExploreProductDetails from "./Pages/ExpoloreProducts/ExploreProductDetails";
 import ExploreProducts from "./Pages/ExpoloreProducts/ExploreProducts";
 import Homepage from "./Pages/Homepage/Homepage.js/Home";
@@ -48,19 +52,18 @@ function App() {
               element={<ServiceFeedback></ServiceFeedback>}
             />
 
-            <Route path="/dashboard" element={<Dashboard></Dashboard>}>
-              <Route path="myorders" element={<Orders></Orders>}></Route>
+            <Route path="/dashboard" element={<Dashboard />}>
               <Route
-                path="dashboadhome"
-                element={<Dashboardhome></Dashboardhome>}
+                path="manageallproducts"
+                element={<ManageAllProducts />}
               ></Route>
-              <Route
-                path="manageallorders"
-                element={<Manageorders></Manageorders>}
-              ></Route>
+              <Route path="dashboadhome" element={<Dashboardhome />}></Route>
+              <Route path="makeanadmin" element={<AddAdmin />}></Route>
+              <Route path="paymentlist" element={<PaymentList />}></Route>
+              <Route path="addproduct" element={<Addproduct />}></Route>
+              <Route path="manageallorders" element={<Manageorders />}></Route>
             </Route>
-
-            <Route path="/signup" element={<SignUpForm> </SignUpForm>} />
+            <Route path="/signup" element={<SignUpForm />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

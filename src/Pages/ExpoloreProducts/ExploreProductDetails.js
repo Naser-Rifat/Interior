@@ -50,7 +50,7 @@ const ExploreProductDetails = () => {
     console.log(orderdata);
 
     axios
-      .post("https://pure-plains-03469.herokuapp.com/orders", orderdata)
+      .post("http://localhost:7000/orders", orderdata)
 
       .then((res) => {
         console.log(res);
@@ -61,14 +61,14 @@ const ExploreProductDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`https://pure-plains-03469.herokuapp.com/products/${id}`)
+    fetch(`http://localhost:7000/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data))
       .finally(() => setIsloading(false));
   }, [state]);
 
   useEffect(() => {
-    fetch(`https://pure-plains-03469.herokuapp.com/products`)
+    fetch(`http://localhost:7000/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .finally(() => setIsloading(false));

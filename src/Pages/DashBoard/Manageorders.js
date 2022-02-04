@@ -1,3 +1,11 @@
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../Hooks/useAuth";
 
@@ -5,9 +13,19 @@ const Manageorders = () => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
   const [state, setState] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
+  const handleClickOpen = (id) => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   useEffect(() => {
-    fetch("https://pure-plains-03469.herokuapp.com/orders/all")
+    fetch("http://localhost:7000/orders/all")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [state]);
@@ -15,7 +33,7 @@ const Manageorders = () => {
   const handleDelete = (id) => {
     const procced = window.confirm("Are you sure ?");
     if (procced) {
-      fetch(`https://pure-plains-03469.herokuapp.com/orders/${id}`, {
+      fetch(`http://localhost:7000/orders${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -30,7 +48,7 @@ const Manageorders = () => {
   };
 
   const handleConfirm = (id) => {
-    fetch(`https://pure-plains-03469.herokuapp.com/orders/${id}`, {
+    fetch(`http://localhost:7000/orders/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -40,7 +58,7 @@ const Manageorders = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          fetch("https://pure-plains-03469.herokuapp.com/orders")
+          fetch("http://localhost:7000/orders")
             .then((res) => res.json())
             .then((data) => setOrders(data));
           setState(true);
@@ -49,6 +67,34 @@ const Manageorders = () => {
   };
   return (
     <div>
+      <Button variant="outlined" onClick={handleClickOpen}>
+        Open responsive dialog
+      </Button>
+      <Dialog
+        fullScreen={fullScreen}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="responsive-dialog-title"
+      >
+        <DialogTitle id="responsive-dialog-title">
+          {"Use Google's location service?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Let Google help apps determine location. This means sending
+            anonymous location data to Google, even when no apps are running.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleClose}>
+            Disagree
+          </Button>
+          <Button onClick={handleClose} autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
+
       <div className="bg-white p-8 rounded-md w-full">
         <div className=" flex items-center justify-between pb-6">
           <div>
@@ -207,7 +253,7 @@ const Manageorders = () => {
               </table>
               <div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
                 <span className="text-xs xs:text-sm text-gray-900">
-                  Showing 1 to 4 of 50 Entries
+                  Showing 1 to 4 of {orders.length} Entries
                 </span>
                 <div className="inline-flex mt-2 xs:mt-0">
                   <button className="text-sm text-indigo-50 transition duration-150 hover:bg-indigo-500 bg-indigo-600 font-semibold py-2 px-4 rounded-l">

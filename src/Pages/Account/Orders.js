@@ -1,5 +1,10 @@
-import { Checkbox, Divider } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { Checkbox, DialogTitle, Divider } from "@mui/material";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useEffect, useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../Hooks/useAuth";
@@ -8,9 +13,23 @@ import Navigation from "../Shared/Navigation";
 
 const Orders = () => {
   const { user } = useAuth();
-  const [checked, setChecked] = React.useState([]);
+  const [checked, setChecked] = useState([]);
 
   const [orders, setOrders] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [idvalue, setIdvalue] = useState(0);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleClickOpen = (id) => {
+    setOpen(true);
+    console.log(id);
+    setIdvalue(id);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   let newtotal = 0;
   let total = 0;
@@ -22,7 +41,7 @@ const Orders = () => {
   // const [ordersubtotal, setOrdersubtotal] = useState([]);
 
   useEffect(() => {
-    fetch(`https://pure-plains-03469.herokuapp.com/orders?email=${user?.email}`)
+    fetch(`http://localhost:7000/orders?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user?.email]);
@@ -36,21 +55,22 @@ const Orders = () => {
   //   seTotal((newtotal = parseInt(value.price) + parseInt(newtotal)))
   // );
   // console.log(total);
-
+  const handleModalDelete = () => {
+    handleDelete(idvalue);
+    console.log(idvalue);
+    handleClose();
+  };
   const handleDelete = (id) => {
-    const procced = window.confirm("Are you sure ?");
-    if (procced) {
-      fetch(`https://pure-plains-03469.herokuapp.com/orders/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            const filter = orders.filter((order) => order._id !== id);
-            setOrders(filter);
-          }
-        });
-    }
+    fetch(`http://localhost:7000/orders/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          const filter = orders.filter((order) => order._id !== id);
+          setOrders(filter);
+        }
+      });
   };
 
   const handleToggle = (value) => () => {
@@ -72,6 +92,7 @@ const Orders = () => {
   return (
     <div>
       <Navigation></Navigation>
+
       <div className="grid lg:grid-cols-12 bg-gray-100  ">
         <div className="bg-white my-5 p-8 rounded-md w-full col-span-8">
           <div className=" flex items-center justify-between pb-6">
@@ -208,12 +229,39 @@ const Orders = () => {
                                 <span className="relative">pending</span>
                               </span>
                             )}
+
+                            {
+                              <Dialog
+                                fullScreen={fullScreen}
+                                open={open}
+                                onClose={handleClose}
+                                aria-labelledby="responsive-dialog-title"
+                              >
+                                <DialogTitle
+                                  sx={{ width: "300px" }}
+                                  id="responsive-dialog-title"
+                                >
+                                  {" Are you Sure ?"}
+                                </DialogTitle>
+                                {/* <DialogContent sx={{ width: "300px" }}>
+                                  <DialogContentText></DialogContentText>
+                                </DialogContent> */}
+                                <DialogActions>
+                                  <Button autoFocus onClick={handleClose}>
+                                    Disagree
+                                  </Button>
+                                  <Button onClick={handleModalDelete} autoFocus>
+                                    Agree
+                                  </Button>
+                                </DialogActions>
+                              </Dialog>
+                            }
                           </td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <span className="relative inline-block px-3 py-1 font-bold  ">
                               {order?.status === "pending" ? (
                                 <RiDeleteBinLine
-                                  onClick={() => handleDelete(order._id)}
+                                  onClick={() => handleClickOpen(order._id)}
                                   className="  cursor-pointer "
                                 />
                               ) : (
@@ -228,7 +276,7 @@ const Orders = () => {
                 </table>
                 <div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
                   <span className="text-xs xs:text-sm text-gray-900">
-                    Showing 1 to 4 of 50 Entries
+                    Showing 1 to 4 of {orders.length} Entries
                   </span>
                   <div className="inline-flex mt-2 xs:mt-0">
                     <button className="text-sm text-indigo-50 transition duration-150 hover:bg-pink-400 bg-pink-600 font-semibold py-2 px-4 rounded-l">

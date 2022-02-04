@@ -44,14 +44,13 @@ function Dashboard(props) {
         </div>
 
         <div>
-          {" "}
+       
           {user && <div className="text-black ml-7">{user.displayName} </div>}
         </div>
       </div> */}
 
       <Box sx={{ textAlign: "left", m: 2 }}>
         <NavLink to="/home" style={{ textDecoration: "none" }}>
-          {" "}
           <Button
             style={{
               color: "black",
@@ -64,44 +63,36 @@ function Dashboard(props) {
           </Button>
         </NavLink>
         <br />
-        <NavLink to={`dashboadhome`} style={{ textDecoration: "none" }}>
-          {" "}
+        <NavLink to="dashboadhome" style={{ textDecoration: "none" }}>
           <Button style={{ color: "black" }}>DashBoard Home</Button>
         </NavLink>{" "}
-        <NavLink to={`/payment`} style={{ textDecoration: "none" }}>
-          {" "}
-          <Button style={{ color: "black" }}>Payment</Button>
+        <NavLink to="paymentlist" style={{ textDecoration: "none" }}>
+          <Button style={{ color: "black" }}>Payment List</Button>
         </NavLink>{" "}
-        <br />
-        <NavLink to={`/reviews`} style={{ textDecoration: "none" }}>
-          {" "}
+        {/* <br />
+        <NavLink to="" style={{ textDecoration: "none" }}>
           <Button style={{ color: "black" }}>Review</Button>
         </NavLink>{" "}
-        <br />
+        <br /> */}
         <Box>
           <NavLink to="manageallorders" style={{ textDecoration: "none" }}>
-            {" "}
             <Button style={{ color: "black" }}>Manage All Orders</Button>
           </NavLink>{" "}
           <br />
-          <NavLink to={`/addadmin`} style={{ textDecoration: "none" }}>
-            {" "}
+          <NavLink to="makeanadmin" style={{ textDecoration: "none" }}>
             <Button style={{ color: "black" }}>Add An Admin</Button>
           </NavLink>{" "}
           <br />
-          <NavLink to={`/addproduct`} style={{ textDecoration: "none" }}>
-            {" "}
+          <NavLink to="addproduct" style={{ textDecoration: "none" }}>
             <Button style={{ color: "black" }}>Add Product</Button>
           </NavLink>{" "}
           <br />
-          <NavLink to={`/manageproducts`} style={{ textDecoration: "none" }}>
-            {" "}
+          <NavLink to="manageallproducts" style={{ textDecoration: "none" }}>
             <Button style={{ color: "black" }}>Manage Products</Button>
           </NavLink>{" "}
           <br />
         </Box>
         <Button onClick={""} style={{ color: "black" }}>
-          {" "}
           Logout
         </Button>
       </Box>
@@ -174,7 +165,7 @@ function Dashboard(props) {
                 </button>
               ) : (
                 <NavLink to="/login">
-                  {" "}
+               
                   <button className="py-2 px-6 flex uppercase">Login</button>
                 </NavLink>
               )} 

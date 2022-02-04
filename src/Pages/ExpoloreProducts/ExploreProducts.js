@@ -8,7 +8,7 @@ const ExploreProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`https://pure-plains-03469.herokuapp.com/products`)
+    fetch(`http://localhost:7000/products`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

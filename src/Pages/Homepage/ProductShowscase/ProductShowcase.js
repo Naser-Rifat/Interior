@@ -16,7 +16,7 @@ const ProductShowcase = () => {
   };
 
   useEffect(() => {
-    fetch("https://pure-plains-03469.herokuapp.com/productsimages")
+    fetch("http://localhost:7000/productsimages")
       .then((res) => res.json())
       .then((data) => setProductImages(data));
   }, []);
