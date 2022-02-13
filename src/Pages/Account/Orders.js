@@ -6,7 +6,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useEffect, useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Hooks/useAuth";
 import Footer from "../Shared/Footer";
 import Navigation from "../Shared/Navigation";
@@ -14,10 +14,10 @@ import Navigation from "../Shared/Navigation";
 const Orders = () => {
   const { user } = useAuth();
   const [checked, setChecked] = useState([]);
-
   const [orders, setOrders] = useState([]);
   const [open, setOpen] = useState(false);
   const [idvalue, setIdvalue] = useState(0);
+  const navigate = useNavigate();
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -41,8 +41,18 @@ const Orders = () => {
   // const [ordersubtotal, setOrdersubtotal] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:7000/orders?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:7000/orders?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("idToken")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          return res.json();
+        } else if (res.status === 401) {
+          navigate("/login");
+        }
+      })
       .then((data) => setOrders(data));
   }, [user?.email]);
 
@@ -88,6 +98,8 @@ const Orders = () => {
   for (const value of checked) {
     newtotal = parseInt(value.price) + parseInt(newtotal);
     total = shippingfee + newtotal;
+    localStorage.setItem("totalItemPrice", total);
+    localStorage.setItem("orderID", value._id);
   }
   return (
     <div>

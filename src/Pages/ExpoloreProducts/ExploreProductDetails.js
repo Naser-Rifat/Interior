@@ -131,7 +131,11 @@ const ExploreProductDetails = () => {
                 <div x-cloak>
                   <div className="  overflow-hidden  h-full md:h-80 rounded-lg  mb-4">
                     <div className="lg:h-full md:h-80 hoverscale transation rounded-lg    mb-4 flex items-center justify-center">
-                      <img className="" src={product.img} />
+                      <img
+                        className=""
+                        src={`data:image/*;base64,${product.image}`}
+                        alt=""
+                      />
                     </div>
                   </div>
 
@@ -492,7 +496,7 @@ const ExploreProductDetails = () => {
       </div>
 
       {/* Products  */}
-      <div className=" mt-16  lg:mx-36">
+      <div className=" my-16  lg:mx-36">
         <h3 className="text-gray-600 text-2xl smWidth font-medium">
           More Products
         </h3>
@@ -506,7 +510,7 @@ const ExploreProductDetails = () => {
                 <div
                   className="flex items-end justify-end h-56 w-full bg-cover"
                   style={{
-                    backgroundImage: `url(${product.img})`,
+                    backgroundImage: `url(data:image/*;base64,${product.image})`,
                   }}
                 >
                   <button className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">

@@ -28,15 +28,16 @@ const SignUpForm = () => {
     registerWithEmailPassword(
       signupinfo.email,
       signupinfo.password,
-      signupinfo.username
+      signupinfo.username,
+      navigate
     );
-    setTimeout(() => {
-      if (signupinfo.email && signupinfo.password && !error) {
-        setOpenModal(true);
-      } else {
-        setOpenModal(false);
-      }
-    }, 1000);
+    // setTimeout(() => {
+    //   if (signupinfo.email && signupinfo.password && !error) {
+    //     setOpenModal(true);
+    //   } else {
+    //     setOpenModal(false);
+    //   }
+    // }, 1000);
     e.preventDefault();
   };
   const handleGooglesignIn = () => {

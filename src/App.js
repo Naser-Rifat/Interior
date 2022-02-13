@@ -8,6 +8,7 @@ import ServiceFeedback from "./Pages/Account/ServiceFeedback";
 import Stripe from "./Pages/Account/Stripe";
 import AddAdmin from "./Pages/DashBoard/AddAdmin";
 import Addproduct from "./Pages/DashBoard/Addproduct";
+import AdminRoute from "./Pages/DashBoard/AdminRoute/AdminRoute";
 import Dashboard from "./Pages/DashBoard/Dashboard";
 import Dashboardhome from "./Pages/DashBoard/Dashboardhome";
 import ManageAllProducts from "./Pages/DashBoard/ManageAllProducts";
@@ -17,6 +18,7 @@ import ExploreProductDetails from "./Pages/ExpoloreProducts/ExploreProductDetail
 import ExploreProducts from "./Pages/ExpoloreProducts/ExploreProducts";
 import Homepage from "./Pages/Homepage/Homepage.js/Home";
 import Login from "./Pages/Login/LoginForm/Login";
+import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import SignUpForm from "./Pages/Login/SignUpForm/SignUpForm";
 import ProjectDetails from "./Pages/ProjectDetails/ProjectDetails";
 
@@ -37,16 +39,24 @@ function App() {
             />
             <Route
               path="/projectdetails/:id"
-              element={<ProjectDetails></ProjectDetails>}
+              element={
+                <PrivateRoute>
+                  <ProjectDetails />
+                </PrivateRoute>
+              }
             />
             <Route
               path="/productdetails/:id"
-              element={<ExploreProductDetails></ExploreProductDetails>}
+              element={
+                <PrivateRoute>
+                  <ExploreProductDetails />
+                </PrivateRoute>
+              }
             />
             <Route path="/myorders" element={<Orders></Orders>} />
             <Route path="/productreviews" element={<Reviews></Reviews>} />
             <Route path="/payment" element={<Payment></Payment>} />
-            <Route path="/stripe" element={<Stripe></Stripe>} />
+            <Route path="/stripe/:paymentid" element={<Stripe></Stripe>} />
             <Route
               path="/servicefeedback"
               element={<ServiceFeedback></ServiceFeedback>}
@@ -60,7 +70,14 @@ function App() {
               <Route path="dashboadhome" element={<Dashboardhome />}></Route>
               <Route path="makeanadmin" element={<AddAdmin />}></Route>
               <Route path="paymentlist" element={<PaymentList />}></Route>
-              <Route path="addproduct" element={<Addproduct />}></Route>
+              <Route
+                path="addproduct"
+                element={
+                  <AdminRoute>
+                    <Addproduct />
+                  </AdminRoute>
+                }
+              ></Route>
               <Route path="manageallorders" element={<Manageorders />}></Route>
             </Route>
             <Route path="/signup" element={<SignUpForm />} />

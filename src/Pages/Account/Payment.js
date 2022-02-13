@@ -204,7 +204,7 @@ const Payment = () => {
               <Divider />
 
               <div className="">
-                <div className="flex grid grid-cols-2  mt-4">
+                {/* <div className="flex grid grid-cols-2  mt-4">
                   <div className="col-span-1  text-left text-gray-500 font-medium ">
                     Subtotal ({checked.length} items)
                   </div>
@@ -212,9 +212,9 @@ const Payment = () => {
                     <span className="text-xl  mr-1">৳</span>
                     {newtotal}
                   </div>
-                </div>
+                </div> */}
 
-                <div className="flex grid grid-cols-2 mt-2">
+                {/* <div className="flex grid grid-cols-2 mt-2">
                   <div className="col-span-1 text-left text-gray-500 font-medium">
                     Shipping Fee
                   </div>
@@ -222,23 +222,26 @@ const Payment = () => {
                     <span className="text-xl  mr-1">৳</span>
                     {newtotal > 1 ? shippingfee : "0"}
                   </div>
-                </div>
+                </div> */}
 
-                <div className="flex grid grid-cols-2 mt-2 ">
+                {/* <div className="flex grid grid-cols-2 mt-2 ">
                   <div className="col-span-1 text-left text-gray-900 font-medium">
                     Total
                   </div>
                   <div className="col-span-1 text-gray-900 font-medium">
-                    <span className="text-xl  mr-1">৳</span>
+                    <span className="text-xl  mr-1">
+                      {localStorage.getItem("totalItemPrice")}
+                    </span>
                     {total}
                   </div>
-                </div>
-                <NavLink to="/stripe">
+                </div> */}
+                <NavLink to={`/stripe/${localStorage.getItem("orderID")}`}>
                   <button
                     style={{ width: "274px" }}
                     className=" py-2 mt-4 bg-pink-500 text-white font-medium  rounded"
                   >
-                    Pay Now
+                    Pay Now ${""}
+                    {localStorage.getItem("totalItemPrice")}
                   </button>
                 </NavLink>
               </div>

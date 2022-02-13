@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  getIdToken,
   GoogleAuthProvider,
   onAuthStateChanged,
   sendEmailVerification,
@@ -18,6 +19,7 @@ const useFirebase = () => {
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [success, setSuccess] = useState(false);
+  const [admin, setAdmin] = useState(false);
 
   const [user, setUser] = useState({});
   const auth = getAuth();
@@ -31,7 +33,7 @@ const useFirebase = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        console.log(user);
+        // console.log(user);
 
         saveUser(user?.email, user?.displayName, "PUT");
         setError("");
@@ -73,7 +75,7 @@ const useFirebase = () => {
   //--sign in with Email and password -process-end--//
 
   //--creating a new user -process-start--//
-  const registerWithEmailPassword = (email, password, name) => {
+  const registerWithEmailPassword = (email, password, name, naviagte) => {
     console.log("ok2");
 
     createUserWithEmailAndPassword(auth, email, password)
@@ -85,6 +87,7 @@ const useFirebase = () => {
         saveUser(email, password, name, "POST");
         console.log(result.user);
         setError("");
+
         updateProfile(auth.currentUser, {
           displayName: name,
           // photoURL: "https://example.com/jane-q-user/profile.jpg"
@@ -102,6 +105,7 @@ const useFirebase = () => {
         setError(error.message);
         // ..
       });
+    naviagte("/");
   };
   //--created a new user -process-end--//
 
@@ -121,6 +125,9 @@ const useFirebase = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
+        getIdToken(user).then((idToken) =>
+          localStorage.setItem("idToken", idToken)
+        );
         setUser(user);
       } else {
         setUser({});
@@ -154,6 +161,19 @@ const useFirebase = () => {
     }).then();
   };
 
+  // fetch admin
+  useEffect(() => {
+    fetch(`http://localhost:7000/user/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAdmin(data.admin);
+        console.log(data.admin);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  }, [user?.email]);
+
   return {
     GoogleSignIn,
     registerWithEmailPassword,
@@ -161,6 +181,7 @@ const useFirebase = () => {
     signInWithEmailPass,
     setIsLoading,
     user,
+    admin,
     success,
     error,
     isLoading,

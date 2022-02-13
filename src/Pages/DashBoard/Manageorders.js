@@ -25,7 +25,7 @@ const Manageorders = () => {
     setOpen(false);
   };
   useEffect(() => {
-    fetch("http://localhost:7000/orders/all")
+    fetch(`http://localhost:7000/orders/all`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [state]);

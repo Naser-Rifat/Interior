@@ -1,12 +1,46 @@
 import React from "react";
+import { useAuth } from "../../Hooks/useAuth";
 import Footer from "../Shared/Footer";
 import Navigation from "../Shared/Navigation";
 
 const Stripe = () => {
+  const { user } = useAuth();
+  // const stripe = useStripe();
+  // const elements = useElements();
+  // const stripePromise = loadStripe(
+  //   "pk_test_51KRz35GbmEtMgWsc53XlZvsVDIMxRxzDjRQVkyGx30KwonL2eIsrwM5YqWm6yuboxeQHQx2bVeKocisA81fm2ihY00e6gwuQIN"
+  // );
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  // };
+
   return (
     <>
       {" "}
       <Navigation></Navigation>
+      {/* <Elements stripe={stripePromise}>
+        <form onSubmit={handleSubmit}>
+          <CardElement
+            options={{
+              style: {
+                base: {
+                  fontSize: "16px",
+                  color: "#424770",
+                  "::placeholder": {
+                    color: "#aab7c4",
+                  },
+                },
+                invalid: {
+                  color: "#9e2146",
+                },
+              },
+            }}
+          />
+          <button type="submit" disabled={!stripe}>
+            Pay
+          </button>
+        </form>
+      </Elements> */}
       <div className="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 pb-10 pt-16">
         <div
           className="w-full mx-auto rounded-lg bg-white shadow-lg p-5 text-gray-700"
@@ -58,6 +92,7 @@ const Stripe = () => {
             <div>
               <input
                 className="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                defaultValue={user?.displayName}
                 placeholder="John Smith"
                 type="text"
               />

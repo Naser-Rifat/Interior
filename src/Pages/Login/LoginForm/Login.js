@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../Hooks/useAuth";
-import Footer from "../../Shared/Footer";
-import Navigation from "../../Shared/Navigation";
 
 const Login = () => {
   const { signInWithEmailPass, GoogleSignIn, error } = useAuth();
@@ -33,7 +31,7 @@ const Login = () => {
 
   return (
     <div>
-      <Navigation> </Navigation>
+      {/* <Navigation> </Navigation> */}
       <div className="pt-6 pb-40">
         <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
           <div
@@ -135,7 +133,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 };
