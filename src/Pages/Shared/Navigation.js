@@ -1,5 +1,4 @@
 import Logout from "@mui/icons-material/Logout";
-import Settings from "@mui/icons-material/Settings";
 import { Menu } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -127,9 +126,12 @@ const Navigation = () => {
                     <MenuItem>
                       <Avatar /> Profile
                     </MenuItem>
-                    <MenuItem>My account</MenuItem>
+                    {/* <MenuItem>My account</MenuItem> */}
                     <Link to="/myorders">
                       <MenuItem>My orders</MenuItem>
+                    </Link>
+                    <Link to="/paymenthistory">
+                      <MenuItem>Payment History</MenuItem>
                     </Link>
                     <Link to="/productreviews">
                       <MenuItem> Reviews</MenuItem>
@@ -146,12 +148,12 @@ const Navigation = () => {
                     </ListItemIcon>
                     Add another account
                   </MenuItem> */}
-                    <MenuItem>
+                    {/* <MenuItem>
                       <ListItemIcon>
                         <Settings fontSize="small" />
                       </ListItemIcon>
                       Settings
-                    </MenuItem>
+                    </MenuItem> */}
 
                     {user?.email ? (
                       <MenuItem onClick={logout}>

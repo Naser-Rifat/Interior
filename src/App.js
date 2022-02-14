@@ -3,6 +3,7 @@ import "./App.css";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
 import Orders from "./Pages/Account/Orders";
 import Payment from "./Pages/Account/Payment";
+import PaymentHistory from "./Pages/Account/PaymentHistory";
 import Reviews from "./Pages/Account/Reviews";
 import ServiceFeedback from "./Pages/Account/ServiceFeedback";
 import Stripe from "./Pages/Account/Stripe";
@@ -16,7 +17,7 @@ import Manageorders from "./Pages/DashBoard/Manageorders";
 import PaymentList from "./Pages/DashBoard/PaymentList";
 import ExploreProductDetails from "./Pages/ExpoloreProducts/ExploreProductDetails";
 import ExploreProducts from "./Pages/ExpoloreProducts/ExploreProducts";
-import Homepage from "./Pages/Homepage/Homepage.js/Home";
+import Homepage from "./Pages/Homepage/Homepage/Home";
 import Login from "./Pages/Login/LoginForm/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import SignUpForm from "./Pages/Login/SignUpForm/SignUpForm";
@@ -54,9 +55,10 @@ function App() {
               }
             />
             <Route path="/myorders" element={<Orders></Orders>} />
+            <Route path="/paymenthistory" element={<PaymentHistory />} />
             <Route path="/productreviews" element={<Reviews></Reviews>} />
             <Route path="/payment" element={<Payment></Payment>} />
-            <Route path="/stripe/:paymentid" element={<Stripe></Stripe>} />
+            <Route path="/stripe" element={<Stripe />} />
             <Route
               path="/servicefeedback"
               element={<ServiceFeedback></ServiceFeedback>}

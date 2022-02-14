@@ -20,8 +20,9 @@ const useFirebase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [success, setSuccess] = useState(false);
   const [admin, setAdmin] = useState(false);
-
   const [user, setUser] = useState({});
+  const currentuser = localStorage.getItem("currentuser");
+
   const auth = getAuth();
 
   const googleProvider = new GoogleAuthProvider();
@@ -33,6 +34,7 @@ const useFirebase = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        localStorage.setItem("currentuser", user?.email);
         // console.log(user);
 
         saveUser(user?.email, user?.displayName, "PUT");
@@ -56,6 +58,7 @@ const useFirebase = () => {
         const user = userCredential.user;
         console.log(user);
         setUser(user);
+        localStorage.setItem("currentuser", user);
         setError("");
         const destination = location?.state?.from || "/";
         console.log(user);
@@ -84,6 +87,7 @@ const useFirebase = () => {
 
         varifyEmail();
         setUser(newuser);
+        localStorage.setItem("currentuser", user);
         saveUser(email, password, name, "POST");
         console.log(result.user);
         setError("");
@@ -166,7 +170,7 @@ const useFirebase = () => {
     fetch(`http://localhost:7000/user/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setAdmin(data.admin);
+        setAdmin(data?.admin);
         console.log(data.admin);
       })
       .catch((error) => {
@@ -180,6 +184,7 @@ const useFirebase = () => {
     logout,
     signInWithEmailPass,
     setIsLoading,
+    currentuser,
     user,
     admin,
     success,
