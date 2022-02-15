@@ -45,16 +45,16 @@ const PaymentHistory = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        let total = 0;
-        for (const value of data) {
-          newtotal = parseInt(value.price) + parseInt(newtotal);
-          total = shippingfee + newtotal;
-          setSubtotal(newtotal);
-          // setTotal(total);
-          localStorage.setItem("totalItemPrice", total);
-          localStorage.setItem("subtotalItemPrice", newtotal);
-          // localStorage.setItem("orderID", value._id);
-        }
+        // let total = 0;
+        // for (const value of data) {
+        //   newtotal = parseInt(value.price) + parseInt(newtotal);
+        //   total = shippingfee + newtotal;
+        //   setSubtotal(newtotal);
+        //   // setTotal(total);
+        //   localStorage.setItem("totalItemPrice", total);
+        //   localStorage.setItem("subtotalItemPrice", newtotal);
+        //   // localStorage.setItem("orderID", value._id);
+        // }
         setOrders(data);
       })
 
@@ -309,7 +309,8 @@ const PaymentHistory = () => {
                 </table>
                 <div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
                   <span className="text-xs xs:text-sm text-gray-900">
-                    Showing 1 to {orders.length} of {orders?.length} Entries
+                    Showing {orders.length} to {orders.length} of{" "}
+                    {orders?.length} Entries
                   </span>
                   <div className="inline-flex mt-2 xs:mt-0">
                     <button className="text-sm text-indigo-50 transition duration-150 hover:bg-pink-400 bg-pink-600 font-semibold py-2 px-4 rounded-l">

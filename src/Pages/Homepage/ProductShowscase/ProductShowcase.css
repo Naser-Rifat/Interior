@@ -6,6 +6,9 @@
 }
 .productsimg {
   background-blend-mode: overlay;
+  object-fit: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center center;
 }
 .productsimg:hover {

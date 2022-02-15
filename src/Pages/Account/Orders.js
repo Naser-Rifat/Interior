@@ -12,10 +12,11 @@ import Footer from "../Shared/Footer";
 import Navigation from "../Shared/Navigation";
 
 const Orders = () => {
-  const { currentuser } = useAuth();
+  const { currentuser, user } = useAuth();
   // const currentuser = localStorage.getItem("currentuser");
   // const [checked, setChecked] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
+  const [totalPrice, setTotaPrice] = useState(0);
   const [newOrder, setNeworder] = useState(0);
   const [orders, setOrders] = useState([]);
   const [open, setOpen] = useState(false);
@@ -35,6 +36,8 @@ const Orders = () => {
   };
 
   let newtotal = 0;
+  // let totalPrice = localStorage.getItem("totalItemPrice");
+
   // let neworder = [];
   const shippingfee = 40;
   // if (checked == false) {
@@ -63,6 +66,7 @@ const Orders = () => {
             setNeworder(parseInt(count));
             console.log(count);
             console.log(value);
+            setTotaPrice(total);
             //  console.log("under new order", neworder);
             // setTotal(total);
             localStorage.setItem("totalItemPrice", total);
@@ -76,8 +80,8 @@ const Orders = () => {
       .catch((error) => {
         console.log(error.message);
       });
-  }, [currentuser]);
-  const totalPrice = localStorage.getItem("totalItemPrice");
+  }, [orders]);
+
   // if (res.status === 200) {
   //   return res.json();
   // } else if (res.status === 401) {
@@ -106,7 +110,24 @@ const Orders = () => {
       .then((data) => {
         if (data.deletedCount > 0) {
           const filter = orders.filter((order) => order._id !== id);
-
+          let total = 0;
+          let count = 0;
+          for (const value of filter) {
+            if (!value.payment) {
+              count = count + 1;
+              newtotal = parseInt(value.price) + parseInt(newtotal);
+              total = shippingfee + newtotal;
+              setSubtotal(newtotal);
+              setNeworder(parseInt(count));
+              console.log(count);
+              console.log(value);
+              //  console.log("under new order", neworder);
+              // setTotal(total);
+              localStorage.setItem("totalItemPrice", total);
+              localStorage.setItem("newOrder", count);
+              localStorage.setItem("subtotalItemPrice", newtotal);
+            }
+          }
           setOrders(filter);
         }
       });
@@ -196,7 +217,7 @@ const Orders = () => {
                       <tr>
                         <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"></th>
                         <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                          products
+                          products Model
                         </th>
                         <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                           Name
@@ -247,11 +268,13 @@ const Orders = () => {
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                   <div className="flex items-center">
                                     <div className="flex-shrink-0 w-20 h-20">
-                                      <img
+                                      {/* <img
                                         className="w-full h-full rounded"
                                         src={`data:image/*;base64,${order.img}`}
+                                        
                                         alt=""
-                                      />
+                                      /> */}
+                                      <p> {order.model}</p>
                                     </div>
                                   </div>
                                 </td>
@@ -303,9 +326,7 @@ const Orders = () => {
                                       >
                                         {" Are you Sure ?"}
                                       </DialogTitle>
-                                      {/* <DialogContent sx={{ width: "300px" }}>
-                            <DialogContentText></DialogContentText>
-                          </DialogContent> */}
+
                                       <DialogActions>
                                         <Button autoFocus onClick={handleClose}>
                                           Disagree

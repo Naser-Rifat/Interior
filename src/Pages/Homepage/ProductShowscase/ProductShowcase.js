@@ -34,7 +34,8 @@ const ProductShowcase = () => {
                     height: "480px",
 
                     // backgroundPosition: "center center",
-                    backgroundImage: `url(data:image/*;base64${productsimage.image})`,
+                    // backgroundImage: `url(data:image/*;base64,${productsimage.image})`,
+                    backgroundImage: `url(${productsimage.image})`,
                   }}
                 >
                   <div className=" absolute bottom-0 uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md py-2   mx-24 my-10 hover:shadow-lg   justify-end transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-black hover:text-white duration-300">

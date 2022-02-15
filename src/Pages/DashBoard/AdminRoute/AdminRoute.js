@@ -3,12 +3,12 @@ import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../../Hooks/useAuth";
 
 function AdminRoute({ children }) {
-  const { isLoading, user, admin } = useAuth();
+  const { isLoading, user, currentuser, admin } = useAuth();
   const location = useLocation();
   if (isLoading) {
     return <CircularProgress />;
   }
-  return user?.email && admin ? (
+  return user?.email || (currentuser && admin) ? (
     children
   ) : (
     <Navigate to="/login" state={{ from: location }} />

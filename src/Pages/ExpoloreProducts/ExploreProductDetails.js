@@ -1,3 +1,4 @@
+import { Alert, Snackbar } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
@@ -12,6 +13,14 @@ const ExploreProductDetails = () => {
   const [product, setProduct] = useState({});
   const [products, setProducts] = useState([]);
   const [state, setState] = useState(false);
+  const [open, setOpen] = useState(false);
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
   // const [btnvalue, setBtnvalue] = useState("Add to cart");
 
   // console.log(item);
@@ -37,17 +46,18 @@ const ExploreProductDetails = () => {
   const onsubmit = () => {
     // setBtnvalue("Added");
     const orderdata = {
-      value: value,
+      // value: value,
       date: new Date(),
       name: user?.displayName,
       email: user.email,
       price: product.price,
       model: product.model,
-      title: product.title,
+      title: product.name,
       status: "pending",
       img: product.img,
     };
-    console.log(orderdata);
+    console.log(product.img);
+    console.log();
 
     axios
       .post("http://localhost:7000/orders", orderdata)
@@ -55,7 +65,10 @@ const ExploreProductDetails = () => {
       .then((res) => {
         console.log(res);
         if (res.data.insertedId) {
+          setOpen(true);
           alert(" Order Added");
+        } else {
+          setOpen(false);
         }
       });
   };
@@ -76,6 +89,11 @@ const ExploreProductDetails = () => {
 
   return (
     <div>
+      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+          Data Successfully Added
+        </Alert>
+      </Snackbar>
       <Navigation></Navigation>
       <div className="antialiased">
         <div className="py-6">

@@ -133,10 +133,10 @@ const Navigation = () => {
                     <Link to="/paymenthistory">
                       <MenuItem>Payment History</MenuItem>
                     </Link>
-                    <Link to="/productreviews">
+                    {/* <Link to="/productreviews">
                       <MenuItem> Reviews</MenuItem>
-                    </Link>
-                    <Link to="/servicefeedback">
+                    </Link> */}
+                    <Link to="/feedbackdraw">
                       <MenuItem>Feedback</MenuItem>
                     </Link>
 

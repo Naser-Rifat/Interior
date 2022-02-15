@@ -1,11 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
+import FeedbackDraw from "./Pages/Account/FeedbackDraw";
 import Orders from "./Pages/Account/Orders";
 import Payment from "./Pages/Account/Payment";
 import PaymentHistory from "./Pages/Account/PaymentHistory";
-import Reviews from "./Pages/Account/Reviews";
-import ServiceFeedback from "./Pages/Account/ServiceFeedback";
 import Stripe from "./Pages/Account/Stripe";
 import AddAdmin from "./Pages/DashBoard/AddAdmin";
 import Addproduct from "./Pages/DashBoard/Addproduct";
@@ -56,13 +55,10 @@ function App() {
             />
             <Route path="/myorders" element={<Orders></Orders>} />
             <Route path="/paymenthistory" element={<PaymentHistory />} />
-            <Route path="/productreviews" element={<Reviews></Reviews>} />
+            {/* <Route path="/productreviews" element={<Reviews></Reviews>} /> */}
             <Route path="/payment" element={<Payment></Payment>} />
             <Route path="/stripe" element={<Stripe />} />
-            <Route
-              path="/servicefeedback"
-              element={<ServiceFeedback></ServiceFeedback>}
-            />
+            <Route path="/feedbackdraw" element={<FeedbackDraw />} />
 
             <Route path="/dashboard" element={<Dashboard />}>
               <Route

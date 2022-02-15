@@ -1,4 +1,7 @@
+import { Alert, FormControl, MenuItem, Select, Snackbar } from "@mui/material";
+import { Box } from "@mui/system";
 import React, { useState } from "react";
+import checked from "../../Images/checked.png";
 
 const Addproduct = () => {
   const [productdata, setProductdata] = useState({});
@@ -6,7 +9,10 @@ const Addproduct = () => {
   const [name, setName] = useState("");
   const [model, setModel] = useState("");
   const [price, setPrice] = useState(0);
+  const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
+  const [open, setOpen] = useState(false);
+
   // const [category, setCategory] = useState(0);
 
   // const name = useRef();
@@ -33,34 +39,44 @@ const Addproduct = () => {
     formData2.append("name", name);
     formData2.append("model", model);
     formData2.append("price", price);
+    formData2.append("category", category);
     formData2.append("description", description);
-    // formData2.append("category", category);
     console.log(formData2);
     fetch("http://localhost:7000/products", {
       method: "POST",
       body: formData2,
     })
       .then((response) => response.json())
-      .then((result) => {
-        console.log("Success:", result);
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged === true) {
+          setOpen(true);
+        } else {
+          setOpen(false);
+        }
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-    // axios
-    //   .post("http://localhost:7000/products", formData)
-    //   .then((response) => response.json())
-    //   .then((result) => {
-    //     console.log("Success:", result);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
+
     console.log(image);
     e.preventDefault();
   };
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+  console.log(category);
   return (
     <div>
+      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+          Data Successfully Added
+        </Alert>
+      </Snackbar>
       <form onSubmit={handleSubmit} className="">
         <div className="flex h-screen  items-center justify-center  mt-10 mb-32">
           <div className="grid bg-white  w-11/12 md:w-9/12 lg:w-1/2">
@@ -125,7 +141,7 @@ const Addproduct = () => {
                 </label>
                 <input
                   name="price"
-                  className="py-2 px-3 rounded-lg border-2 border-gray-300 mt-1 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
+                  className="py-2 px-3 rounded-lg bg-transparent border-2 border-gray-300 mt-1 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
                   type="number"
                   onChange={(e) => setPrice(e.target.value)}
                   placeholder="price"
@@ -138,7 +154,7 @@ const Addproduct = () => {
               <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
                 category
               </label>
-              <select
+              {/* <select
                 required
                 // onClick={(e) => setCategory(e.current.value)}
                 className="py-2 px-3 rounded-lg border-2 border-gray-300 mt-1 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
@@ -146,7 +162,30 @@ const Addproduct = () => {
                 <option value="1">A</option>
                 <option value="2">B</option>
                 <option value="3">C</option>
-              </select>
+              </select> */}
+              <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth>
+                  {/* <InputLabel id="demo-simple-select-label">
+                    Category
+                  </InputLabel> */}
+                  <Select
+                    className=" rounded-lg border-1 border-gray-300 mt-1 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
+                    required
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={category}
+                    // label="Category"
+
+                    placeholder="Category"
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                    <MenuItem value={"A"}>A</MenuItem>
+                    <MenuItem value={"B"}>B</MenuItem>
+                    <MenuItem value={"C"}>C</MenuItem>
+                    <MenuItem value={"D"}>D</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
             </div>
 
             <div className="grid grid-cols-1 mt-5 mx-7">
@@ -170,22 +209,32 @@ const Addproduct = () => {
               <div className="flex items-center justify-center w-full">
                 <label className="flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-gray-300 group">
                   <div className="flex flex-col items-center justify-center pt-7">
-                    <svg
-                      className="w-10 h-10 text-gray-400 group-hover:text-gray-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      ></path>
-                    </svg>
+                    {!image ? (
+                      <>
+                        <svg
+                          className="w-10 h-10 text-gray-400 group-hover:text-gray-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                          ></path>
+                        </svg>
+                      </>
+                    ) : (
+                      <img
+                        className="w-10 h-10 text-gray-400 group-hover:text-gray-600"
+                        src={checked}
+                        alt=""
+                      />
+                    )}
                     <p className="lowercase text-sm text-gray-400 group-hover:text-gray-600 pt-1 tracking-wider">
-                      Select a photo
+                      {image ? "selected" : "Select a photo"}
                     </p>
                   </div>
                   <input

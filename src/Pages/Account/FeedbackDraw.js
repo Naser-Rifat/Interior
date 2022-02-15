@@ -49,7 +49,7 @@ IconContainer.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-const Reviews = () => {
+const FeedbackDraw = () => {
   const { user } = useAuth();
   const [value, setValue] = useState(0);
   const [profession, setProffesion] = useState("");
@@ -175,4 +175,4 @@ const Reviews = () => {
   );
 };
 
-export default Reviews;
+export default FeedbackDraw;
