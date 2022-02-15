@@ -16,7 +16,7 @@ const ProductShowcase = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:7000/productsimages")
+    fetch("https://nameless-spire-32128.herokuapp.com/productsimages")
       .then((res) => res.json())
       .then((data) => setProductImages(data));
   }, []);

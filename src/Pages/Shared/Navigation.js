@@ -50,6 +50,7 @@ const Navigation = () => {
                   Dashboard
                 </NavLink>
               )}
+              <i class="fa-solid fa-cart-shopping"></i>
               {/* <i className="fa-solid text-black fa-cart-shopping"></i> */}
               {/* <NavLink to="/dashboard" className="py-2 px-6 flex">
                 Account
