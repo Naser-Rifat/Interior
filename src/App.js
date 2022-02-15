@@ -6,6 +6,7 @@ import Orders from "./Pages/Account/Orders";
 import Payment from "./Pages/Account/Payment";
 import PaymentHistory from "./Pages/Account/PaymentHistory";
 import Stripe from "./Pages/Account/Stripe";
+import ContactUs from "./Pages/ContactUs/ContactUs";
 import AddAdmin from "./Pages/DashBoard/AddAdmin";
 import Addproduct from "./Pages/DashBoard/Addproduct";
 import AdminRoute from "./Pages/DashBoard/AdminRoute/AdminRoute";
@@ -29,6 +30,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Homepage></Homepage>} />
+            <Route path="/contactus" element={<ContactUs />} />
 
             <Route path="/home" element={<Homepage> </Homepage>} />
 

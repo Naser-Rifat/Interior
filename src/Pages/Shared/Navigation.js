@@ -13,7 +13,7 @@ import { useAuth } from "../../../src/Hooks/useAuth";
 import "./Navigation.css";
 
 const Navigation = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, admin } = useAuth();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -42,15 +42,15 @@ const Navigation = () => {
               <NavLink to="/exploreproducts" className="py-2 px-6 flex">
                 Product
               </NavLink>
-              <NavLink to="" className="py-2 px-6 flex">
+              <NavLink to="/contactus" className="py-2 px-6 flex">
                 Contact
               </NavLink>
-              {user?.email && (
+              {admin && (
                 <NavLink to="/dashboard" className="py-2 px-6 flex">
                   Dashboard
                 </NavLink>
               )}
-
+              {/* <i className="fa-solid text-black fa-cart-shopping"></i> */}
               {/* <NavLink to="/dashboard" className="py-2 px-6 flex">
                 Account
               </NavLink> */}

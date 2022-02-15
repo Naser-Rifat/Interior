@@ -6,7 +6,7 @@ import Footer from "../Shared/Footer";
 import Navigation from "../Shared/Navigation";
 
 const Payment = () => {
-  const { currentuser } = useAuth();
+  const { currentuser, user } = useAuth();
   // const currentUser = localStorage.getItem("currentuser");
   // const [checked, setChecked] = React.useState([]);
 
@@ -89,6 +89,7 @@ const Payment = () => {
                   name="cus_name"
                   type="text"
                   required=""
+                  defaultValue={user ? user.displayName : "Name"}
                   placeholder="Your Name"
                   aria-label="Name"
                 />
@@ -103,6 +104,7 @@ const Payment = () => {
                   name="cus_email"
                   type="text"
                   required=""
+                  defaultValue={user ? user.email : "Email"}
                   placeholder="Your Email"
                   aria-label="Email"
                 />
