@@ -120,7 +120,7 @@ const Orders = () => {
               count = count + 1;
               newtotal = parseInt(value.price) + parseInt(newtotal);
               total = shippingfee + newtotal;
-              setSubtotal(newtotal);
+              setSubtotal(parseInt(newtotal));
               setNeworder(parseInt(count));
               console.log(count);
               console.log(value);

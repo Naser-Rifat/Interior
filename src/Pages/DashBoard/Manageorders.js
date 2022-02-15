@@ -64,9 +64,9 @@ const Manageorders = () => {
               // console.log(value);
               //  console.log("under new order", neworder);
               // setTotal(total);
-              localStorage.setItem("totalItemPrice", total);
-              localStorage.setItem("newOrder", count);
-              localStorage.setItem("subtotalItemPrice", newtotal);
+              localStorage.setItem("totalItemPrice", parseInt(total));
+              localStorage.setItem("newOrder", parseInt(count));
+              localStorage.setItem("subtotalItemPrice", parseInt(newtotal));
             }
           }
           setOrders(filter);
