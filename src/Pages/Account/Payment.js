@@ -19,9 +19,9 @@ const Payment = () => {
   // let total = 0;
   // const shippingfee = 40;
 
-  const totalPrice = localStorage.getItem("totalItemPrice");
-  const subTotalPrice = localStorage.getItem("subtotalItemPrice");
-  const newOrder = localStorage.getItem("newOrder");
+  const totalPrice = parseInt(localStorage.getItem("totalItemPrice"));
+  const subTotalPrice = parseInt(localStorage.getItem("subtotalItemPrice"));
+  const newOrder = parseInt(localStorage.getItem("newOrder"));
 
   // let newtotal = 0;
   // let total = 0;

@@ -36,7 +36,7 @@ const Orders = () => {
   };
 
   let newtotal = 0;
-  // let totalPrice = localStorage.getItem("totalItemPrice");
+  let totalPriceCart = parseInt(localStorage.getItem("totalItemPrice"));
 
   // let neworder = [];
   const shippingfee = 40;
@@ -64,12 +64,14 @@ const Orders = () => {
           if (!value.payment) {
             count = count + 1;
             newtotal = parseInt(value.price) + parseInt(newtotal);
+            console.log(newtotal);
             total = shippingfee + newtotal;
-            setSubtotal(newtotal);
+            console.log(total);
+            setSubtotal(parseInt(newtotal));
             setNeworder(parseInt(count));
             console.log(count);
             console.log(value);
-            setTotaPrice(total);
+            setTotaPrice(parseInt(total));
             //  console.log("under new order", neworder);
             // setTotal(total);
             localStorage.setItem("totalItemPrice", parseInt(total));
@@ -125,7 +127,7 @@ const Orders = () => {
               console.log(count);
               console.log(value);
               //  console.log("under new order", neworder);
-              // setTotal(total);
+              setTotaPrice(parseInt(total));
               localStorage.setItem("totalItemPrice", parseInt(total));
               localStorage.setItem("newOrder", count);
               localStorage.setItem("subtotalItemPrice", parseInt(newtotal));

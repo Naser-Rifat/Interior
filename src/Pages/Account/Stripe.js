@@ -11,7 +11,7 @@ const Stripe = () => {
   //   const currentUser = localStorage.getItem("currentuser");
   const name = localStorage.getItem("customername");
   const email = localStorage.getItem("customeremail");
-  const totalPrice = localStorage.getItem("totalItemPrice");
+  const totalPrice = parseInt(localStorage.getItem("totalItemPrice"));
   //   const subTotalPrice = localStorage.getItem("subtotalItemPrice");
   //   let newtotal = 0;
 
