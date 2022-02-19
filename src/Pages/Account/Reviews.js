@@ -66,13 +66,18 @@ const Reviews = () => {
       profession: profession,
       img: user?.photoURL,
     };
-    axios.post(`http://localhost:7000/feedback`, updatefeedback).then((res) => {
-      if (res.data.acknowledged === true) {
-        setOpen(true);
-      } else {
-        setOpen(false);
-      }
-    });
+    axios
+      .post(
+        `https://nameless-spire-32128.herokuapp.com/feedback`,
+        updatefeedback
+      )
+      .then((res) => {
+        if (res.data.acknowledged === true) {
+          setOpen(true);
+        } else {
+          setOpen(false);
+        }
+      });
   };
 
   const handleChange = (event) => {

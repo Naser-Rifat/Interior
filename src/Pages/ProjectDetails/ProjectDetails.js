@@ -9,7 +9,7 @@ const ProjectDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:7000/latest_interiors/${id}`)
+    fetch(`https://nameless-spire-32128.herokuapp.com/latest_interiors/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -114,7 +114,11 @@ const ProjectDetails = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-6 mt-2 py-2">
                   <p className="text-gray-600 font-semibold">Area: </p>
-                  <p className=""> {projectdetails.Area} </p>
+                  <p className="">
+                    {" "}
+                    {projectdetails.Area}
+                    <sup>2</sup>{" "}
+                  </p>
                 </div>
                 <div className="grid grid-cols-2 gap-6  mt-2 py-2">
                   <p className="text-gray-600 font-semibold">

@@ -60,7 +60,7 @@ const ExploreProductDetails = () => {
     console.log();
 
     axios
-      .post("http://localhost:7000/orders", orderdata)
+      .post("https://nameless-spire-32128.herokuapp.com/orders", orderdata)
 
       .then((res) => {
         console.log(res);
@@ -74,14 +74,14 @@ const ExploreProductDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:7000/products/${id}`)
+    fetch(`https://nameless-spire-32128.herokuapp.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data))
       .finally(() => setIsloading(false));
   }, [state]);
 
   useEffect(() => {
-    fetch(`http://localhost:7000/products`)
+    fetch(`https://nameless-spire-32128.herokuapp.com/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .finally(() => setIsloading(false));

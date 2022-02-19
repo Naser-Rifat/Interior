@@ -113,7 +113,7 @@ const Login = () => {
                   type="password"
                 />
               </div>
-              {error && <div>{error}</div>}
+              {error && <div className="text-red-500">{error}</div>}
               <div className="mt-8">
                 <button
                   type="submit"

@@ -38,11 +38,14 @@ const PaymentHistory = () => {
   // const [ordersubtotal, setOrdersubtotal] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:7000/orders?email=${currentuser}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("idToken")}`,
-      },
-    })
+    fetch(
+      `https://nameless-spire-32128.herokuapp.com/orders?email=${currentuser}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("idToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // let total = 0;
@@ -83,7 +86,7 @@ const PaymentHistory = () => {
   //     handleClose();
   //   };
   //   const handleDelete = (id) => {
-  //     fetch(`http://localhost:7000/orders/${id}`, {
+  //     fetch(`https://nameless-spire-32128.herokuapp.com/orders/${id}`, {
   //       method: "DELETE",
   //     })
   //       .then((res) => res.json())
@@ -119,7 +122,7 @@ const PaymentHistory = () => {
   //   };
   //   localStorage.setItem("customername", finalorder.name);
   //   localStorage.setItem("customeremail", finalorder.email);
-  //   axios.post(`http://localhost:7000/final/orders`, finalorder);
+  //   axios.post(`https://nameless-spire-32128.herokuapp.com/final/orders`, finalorder);
   // };
   // for (const value of checked) {
   //   newtotal = parseInt(value.price) + parseInt(newtotal);

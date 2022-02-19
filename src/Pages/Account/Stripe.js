@@ -17,7 +17,7 @@ const Stripe = () => {
 
   //   const shippingfee = 40;
   //   useEffect(() => {
-  //     fetch(`http://localhost:7000/finalorders?email=${currentuser}`)
+  //     fetch(`https://nameless-spire-32128.herokuapp.com/finalorders?email=${currentuser}`)
   //       .then((res) => res.json())
   //       .then((data) => {
   //         console.log(data);

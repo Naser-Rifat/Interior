@@ -36,11 +36,14 @@ const Payment = () => {
 
   let shippingfee = 40;
   useEffect(() => {
-    fetch(`http://localhost:7000/orders?email=${currentuser}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("idToken")}`,
-      },
-    })
+    fetch(
+      `https://nameless-spire-32128.herokuapp.com/orders?email=${currentuser}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("idToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -59,7 +62,7 @@ const Payment = () => {
   console.log("total value fetch from backend", totalPrice);
   // const handlePament=(id)=>{
 
-  //     fetch(`http://localhost:7000/finalorders/${id}`)
+  //     fetch(`https://nameless-spire-32128.herokuapp.com/finalorders/${id}`)
   //       .then((res) => res.json())
   //       .then((data) => {
   //         console.log(data);

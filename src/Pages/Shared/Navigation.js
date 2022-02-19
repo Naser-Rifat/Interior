@@ -31,7 +31,7 @@ const Navigation = () => {
             INTERIOR.US
           </div>
           <div className="flex items-center">
-            <nav className=" menu-bar font-sen text-gray-800 dark:text-white uppercase text-lg lg:flex items-center hidden">
+            <nav className=" menu-bar  text-gray-800 dark:text-white uppercase text-lg lg:flex items-center hidden">
               <NavLink to="/home" className="py-2 px-6 flex">
                 Home
               </NavLink>
@@ -46,9 +46,11 @@ const Navigation = () => {
                 Contact
               </NavLink>
 
-              <NavLink to="/dashboard" className="py-2 px-6 flex">
-                Dashboard
-              </NavLink>
+              {admin && (
+                <NavLink to="/dashboard" className="py-2 px-6 flex">
+                  Dashboard
+                </NavLink>
+              )}
 
               <i class="fa-solid fa-cart-shopping"></i>
               {/* <i className="fa-solid text-black fa-cart-shopping"></i> */}
