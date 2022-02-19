@@ -156,7 +156,7 @@ const useFirebase = () => {
 
   const saveUser = (email, password, displayName, method) => {
     const user = { email, password, displayName };
-    fetch("https://nameless-spire-32128.herokuapp.com/user", {
+    fetch("http://localhost:7000/user", {
       method: method,
       headers: {
         "content-type": "application/json",
@@ -167,7 +167,7 @@ const useFirebase = () => {
 
   // fetch admin
   useEffect(() => {
-    fetch(`https://nameless-spire-32128.herokuapp.com/user/${user?.email}`)
+    fetch(`http://localhost:7000/user/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setAdmin(data?.admin);

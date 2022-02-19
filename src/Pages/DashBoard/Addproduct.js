@@ -42,7 +42,7 @@ const Addproduct = () => {
     formData2.append("category", category);
     formData2.append("description", description);
     console.log(formData2);
-    fetch("https://nameless-spire-32128.herokuapp.com/products", {
+    fetch("http://localhost:7000/products", {
       method: "POST",
       body: formData2,
     })

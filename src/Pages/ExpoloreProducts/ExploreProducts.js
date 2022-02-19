@@ -9,7 +9,7 @@ const ExploreProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`https://nameless-spire-32128.herokuapp.com/products`)
+    fetch(`http://localhost:7000/products`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

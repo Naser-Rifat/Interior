@@ -9,7 +9,7 @@ const ProjectDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`https://nameless-spire-32128.herokuapp.com/latest_interiors/${id}`)
+    fetch(`http://localhost:7000/latest_interiors/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

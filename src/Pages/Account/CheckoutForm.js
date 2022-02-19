@@ -23,10 +23,7 @@ const CheckOutForm = ({ name, email, price }) => {
   };
   useEffect(() => {
     axios
-      .post(
-        "https://nameless-spire-32128.herokuapp.com/create-payment-intent",
-        totalprice
-      )
+      .post("http://localhost:7000/create-payment-intent", totalprice)
       .then((res) => setClientSecret(res.data));
     // .then((data) => {
     //   console.log(data);
@@ -80,14 +77,11 @@ const CheckOutForm = ({ name, email, price }) => {
       setSuccess("payment succesfully procced");
       localStorage.setItem("totalItemPrice", 0);
       localStorage.setItem("subtotalItemPrice", 0);
-      fetch(
-        `https://nameless-spire-32128.herokuapp.com/orders?email=${currentuser}`,
-        {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("idToken")}`,
-          },
-        }
-      )
+      fetch(`http://localhost:7000/orders?email=${currentuser}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("idToken")}`,
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           for (const value of data) {
@@ -97,10 +91,7 @@ const CheckOutForm = ({ name, email, price }) => {
               last4: paymentMethod.card.last4,
               transaction: paymentIntent.client_secret.slice("_secret")[0],
             };
-            axios.put(
-              `https://nameless-spire-32128.herokuapp.com/orders/${value._id}`,
-              payment
-            );
+            axios.put(`http://localhost:7000/orders/${value._id}`, payment);
 
             console.log("total value fetch from backend");
           }
@@ -109,17 +100,17 @@ const CheckOutForm = ({ name, email, price }) => {
       //   status: 200,
       // };
 
-      //   //   axios.put(`https://nameless-spire-32128.herokuapp.com/orders`, orderConfirm);
+      //   //   axios.put(`http://localhost:7000/orders`, orderConfirm);
     }
   };
 
   // const handleConfirmPayment = () => () => {
-  //   fetch(`https://nameless-spire-32128.herokuapp.com/finalorders?email=${currentUser}`)
+  //   fetch(`http://localhost:7000/finalorders?email=${currentUser}`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       for (const value of data) {
   //         value.status = 200;
-  //         axios.put(`https://nameless-spire-32128.herokuapp.com/orders/${value._id}`, value.status);
+  //         axios.put(`http://localhost:7000/orders/${value._id}`, value.status);
 
   //         console.log("total value fetch from backend");
   //       }
@@ -130,7 +121,7 @@ const CheckOutForm = ({ name, email, price }) => {
 
   //   // };
 
-  //   //   axios.put(`https://nameless-spire-32128.herokuapp.com/orders`, orderConfirm);
+  //   //   axios.put(`http://localhost:7000/orders`, orderConfirm);
   // };
 
   return (

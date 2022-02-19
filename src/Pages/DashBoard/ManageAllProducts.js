@@ -5,7 +5,7 @@ const ManageAllProducts = () => {
   const [productsData, setProductsData] = useState([]);
 
   useEffect(() => {
-    fetch(`https://nameless-spire-32128.herokuapp.com/products`)
+    fetch(`http://localhost:7000/products`)
       .then((res) => res.json())
       .then((data) => setProductsData(data));
   }, [state]);
@@ -13,13 +13,13 @@ const ManageAllProducts = () => {
   const handleDelete = (id) => {
     const procced = window.confirm("You would like to delete?");
     if (procced) {
-      fetch(`https://nameless-spire-32128.herokuapp.com/products/${id}`, {
+      fetch(`http://localhost:7000/products/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
-            fetch(`https://nameless-spire-32128.herokuapp.com/products`)
+            fetch(`http://localhost:7000/products`)
               .then((res) => res.json())
               .then((data) => setProductsData(data));
             setState(true);

@@ -45,11 +45,11 @@ const Navigation = () => {
               <NavLink to="/contactus" className="py-2 px-6 flex">
                 Contact
               </NavLink>
-              {admin && (
-                <NavLink to="/dashboard" className="py-2 px-6 flex">
-                  Dashboard
-                </NavLink>
-              )}
+
+              <NavLink to="/dashboard" className="py-2 px-6 flex">
+                Dashboard
+              </NavLink>
+
               <i class="fa-solid fa-cart-shopping"></i>
               {/* <i className="fa-solid text-black fa-cart-shopping"></i> */}
               {/* <NavLink to="/dashboard" className="py-2 px-6 flex">

@@ -5,7 +5,7 @@ import "./feedback.css";
 const Feedback = () => {
   const [feedback, setFeedback] = useState([]);
   useEffect(() => {
-    fetch(`https://nameless-spire-32128.herokuapp.com/feedback`)
+    fetch(`http://localhost:7000/feedback`)
       .then((res) => res.json())
       .then((data) => setFeedback(data.reverse()));
   }, []);

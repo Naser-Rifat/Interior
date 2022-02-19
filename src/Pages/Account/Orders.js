@@ -13,10 +13,16 @@ import Navigation from "../Shared/Navigation";
 
 const Orders = () => {
   const { currentuser, user } = useAuth();
-  // const currentuser = localStorage.getItem("currentuser");
+  // localStorage.settItem("currentuser", user?.email);
+  //const currentuserUp = localStorage.getItem("currentuser");
   // const [checked, setChecked] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
-  const [totalPrice, setTotaPrice] = useState(0);
+  let [totalPrice, setTotalPrice] = useState(0);
+  let [count, setCount] = useState(0);
+  const [countItem, setCountItem] = useState(0);
+  const [valueTotal, setValueTotal] = useState(0);
+  let [newTotal, setnewTotal] = useState(0);
+  const [TotalCost, setTotalCost] = useState(0);
   const [newOrder, setNeworder] = useState(0);
   const [orders, setOrders] = useState([]);
   const [open, setOpen] = useState(false);
@@ -24,7 +30,7 @@ const Orders = () => {
   // const navigate = useNavigate();
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-
+  //let newTotal = useRef(0);
   const handleClickOpen = (id) => {
     setOpen(true);
     console.log(id);
@@ -35,50 +41,52 @@ const Orders = () => {
     setOpen(false);
   };
 
-  let newtotal = 0;
-  let totalPriceCart = parseInt(localStorage.getItem("totalItemPrice"));
-
+  // let totalPriceCart = parseInt(localStorage.getItem("totalItemPrice"));
+  // let newTotal = 0;
+  // newTotal = newTotal + parseInt(valueTotal);
+  // localStorage.setItem("subtotalItemPrice", newTotal);
+  // console.log(newTotal);
   // let neworder = [];
   const shippingfee = 40;
   // if (checked == false) {
   //   newtotal = 0;
   // }
-
+  // let totalPrice2 = 0;
+  //let total = 0;
+  //let count = 0;
   // const [ordersubtotal, setOrdersubtotal] = useState([]);
 
   useEffect(() => {
-    fetch(
-      `https://nameless-spire-32128.herokuapp.com/orders?email=${currentuser}`,
-      {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("idToken")}`,
-        },
-      }
-    )
+    fetch(`http://localhost:7000/orders?email=${currentuser || user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("idToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
-        let total = 0;
-        let count = 0;
+
         for (const value of data) {
+          // console.log(parseInt(value?.price));
           if (!value.payment) {
             count = count + 1;
-            newtotal = parseInt(value.price) + parseInt(newtotal);
-            console.log(newtotal);
-            total = shippingfee + newtotal;
-            console.log(total);
-            setSubtotal(parseInt(newtotal));
-            setNeworder(parseInt(count));
+            setCountItem(count);
             console.log(count);
-            console.log(value);
-            setTotaPrice(parseInt(total));
-            //  console.log("under new order", neworder);
-            // setTotal(total);
-            localStorage.setItem("totalItemPrice", parseInt(total));
+            let valuePrice = parseInt(value.price);
+            setValueTotal(valuePrice);
+            console.log(valuePrice);
+            newTotal = parseInt(newTotal) + parseInt(valueTotal);
+            setSubtotal(newTotal);
+
+            totalPrice = newTotal + shippingfee;
+            setTotalCost(totalPrice);
+
+            localStorage.setItem("totalItemPrice", totalPrice);
             localStorage.setItem("newOrder", count);
-            localStorage.setItem("subtotalItemPrice", parseInt(newtotal));
+            localStorage.setItem("subtotalItemPrice", newTotal);
+            console.log(newTotal);
+            console.log(totalPrice);
           }
-          // localStorage.setItem("orderID", value._id);
         }
       })
 
@@ -86,6 +94,11 @@ const Orders = () => {
         console.log(error.message);
       });
   }, [orders]);
+
+  // dns1.p02.nsone.net
+  // dns2.p02.nsone.net
+  // dns3.p02.nsone.net
+  // dns4.p02.nsone.net
 
   // if (res.status === 200) {
   //   return res.json();
@@ -108,36 +121,61 @@ const Orders = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`https://nameless-spire-32128.herokuapp.com/orders/${id}`, {
+    fetch(`http://localhost:7000/orders/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
           const filter = orders.filter((order) => order._id !== id);
-          let total = 0;
-          let count = 0;
+
           for (const value of filter) {
+            // console.log(parseInt(value?.price));
             if (!value.payment) {
               count = count + 1;
-              newtotal = parseInt(value.price) + parseInt(newtotal);
-              total = shippingfee + newtotal;
-              setSubtotal(parseInt(newtotal));
-              setNeworder(parseInt(count));
+              setCountItem(count);
               console.log(count);
-              console.log(value);
-              //  console.log("under new order", neworder);
-              setTotaPrice(parseInt(total));
-              localStorage.setItem("totalItemPrice", parseInt(total));
+              let valuePrice = parseInt(value.price);
+              setValueTotal(valuePrice);
+              console.log(valuePrice);
+              newTotal = parseInt(newTotal) + parseInt(valueTotal);
+              setSubtotal(newTotal);
+
+              totalPrice = newTotal + shippingfee;
+              setTotalCost(totalPrice);
+
+              localStorage.setItem("totalItemPrice", totalPrice);
               localStorage.setItem("newOrder", count);
-              localStorage.setItem("subtotalItemPrice", parseInt(newtotal));
+              localStorage.setItem("subtotalItemPrice", newTotal);
+              console.log(newTotal);
+              console.log(totalPrice);
             }
           }
+          // let total = 0;
+          // let count = 0;
+          // let updateTotal = 0;
+          // let newtotal = 1;
+          // for (const value of filter) {
+          //   if (!value.payment) {
+          //     count = count + 1;
+          //     updateTotal = parseInt(value.price) + updateTotal;
+          //     total = shippingfee + updateTotal;
+          //     //  setSubtotal(parseInt(updateTotal));
+          //     // setNeworder(parseInt(count));
+          //     // console.log(count);
+          //     // console.log(value);
+          //     // //  console.log("under new order", neworder);
+          //     // setTotaPrice(parseInt(total));
+          //     // localStorage.setItem("totalItemPrice", total);
+          //     // localStorage.setItem("newOrder", count);
+          //     // localStorage.setItem("subtotalItemPrice", updateTotal);
+          //   }
+          // }
           setOrders(filter);
         }
       });
   };
-  console.log(newOrder);
+  // console.log(newOrder);
 
   // const handleToggle = (value) => () => {
   //   const currentIndex = checked.indexOf(value);
@@ -162,7 +200,7 @@ const Orders = () => {
   //   };
   //   localStorage.setItem("customername", finalorder.name);
   //   localStorage.setItem("customeremail", finalorder.email);
-  //   axios.post(`https://nameless-spire-32128.herokuapp.com/final/orders`, finalorder);
+  //   axios.post(`http://localhost:7000/final/orders`, finalorder);
   // };
   // for (const value of checked) {
   //   newtotal = parseInt(value.price) + parseInt(newtotal);
@@ -371,7 +409,7 @@ const Orders = () => {
                   </table>
                   <div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
                     <span className="text-xs xs:text-sm text-gray-900">
-                      Showing {newOrder} to {newOrder} of {newOrder} Entries
+                      Showing {countItem} to {countItem} of {countItem} Entries
                     </span>
                     <div className="inline-flex mt-2 xs:mt-0">
                       <button className="text-sm text-indigo-50 transition duration-150 hover:bg-pink-400 bg-pink-600 font-semibold py-2 px-4 rounded-l">
@@ -400,11 +438,11 @@ const Orders = () => {
                 <div className="">
                   <div className="flex grid grid-cols-2  mt-4">
                     <div className="col-span-1  text-left text-gray-500 font-medium ">
-                      Subtotal ({newOrder}items)
+                      Subtotal ({countItem}items)
                     </div>
                     <div className="col-span-1 text-gray-500 font-medium">
                       <span className="text-xl  mr-1">৳</span>
-                      {subtotal}
+                      {Number.isNaN(subtotal) ? valueTotal : subtotal}
                     </div>
                   </div>
 
@@ -433,7 +471,7 @@ const Orders = () => {
                     </div>
                     <div className="col-span-1 text-gray-900 font-medium">
                       <span className="text-xl  mr-1">৳</span>
-                      {totalPrice}
+                      {TotalCost}
                     </div>
                   </div>
                   <NavLink to="/payment">

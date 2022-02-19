@@ -35,13 +35,13 @@ const Manageorders = () => {
   };
 
   useEffect(() => {
-    fetch(`https://nameless-spire-32128.herokuapp.com/orders/all`)
+    fetch(`http://localhost:7000/orders/all`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [state]);
 
   const handleDelete = (id) => {
-    fetch(`https://nameless-spire-32128.herokuapp.com/orders/${id}`, {
+    fetch(`http://localhost:7000/orders/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -76,7 +76,7 @@ const Manageorders = () => {
   };
 
   const handleConfirm = (id) => {
-    fetch(`https://nameless-spire-32128.herokuapp.com/orders/update/${id}`, {
+    fetch(`http://localhost:7000/orders/update/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -86,7 +86,7 @@ const Manageorders = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          fetch("https://nameless-spire-32128.herokuapp.com/orders")
+          fetch("http://localhost:7000/orders")
             .then((res) => res.json())
             .then((data) => setOrders(data));
           setState(true);

@@ -5,7 +5,7 @@ const LatestInterrior = () => {
   const [interiorProjects, setProjectImage] = useState([]);
 
   useEffect(() => {
-    fetch("https://nameless-spire-32128.herokuapp.com/latest_interiors")
+    fetch("http://localhost:7000/latest_interiors")
       .then((res) => res.json())
       .then((data) => {
         setProjectImage(data);
