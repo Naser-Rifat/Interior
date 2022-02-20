@@ -33,7 +33,7 @@ function Dashboard(props) {
 
       <Box sx={{ textAlign: "left", m: 2 }}>
         <NavLink
-          className="text-base hover:text-gray-900 text-white font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+          className="text-base mt-12 hover:text-gray-900 text-white font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
           to="/home"
           style={{ textDecoration: "none" }}
         >
