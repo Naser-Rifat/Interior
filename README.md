@@ -2,15 +2,23 @@
 
 ![site](https://i.ibb.co/QkwG07m/interior-site-img.png)
 
-## INTERIOR.US 
 
-## [Interior.us](https://interior-a2fbe.web.app/)
+## [INTERIOR.US](https://interior-a2fbe.web.app/)
 
 
 This is a web application project. The project name is INTERIOR.US and this project is made based on an Interior design company. By this website, the company wants to reach their product and service end to their customer.
 
+## 👩‍💻 Technology Used in this project. 
+- React
+- Tailwind css
+- Material UI
+- Node js
+- Express js
+- MongoDB
+- Stripe payment system 
 
-## Some Customers Features Of this Project
+
+## Customers Features Of this Project
 
  - user can signup with email and password or google.
  ![signUp](https://i.ibb.co/BcH3nvR/signUp.png)
@@ -31,14 +39,14 @@ This is a web application project. The project name is INTERIOR.US and this proj
 - Payment 
   ![payment](https://i.ibb.co/8268yN3/payment.png)
 
-## Some Admin Features Of this Project
+## Admin Features Of this Project
 
 - Admin panle.
  ![signUp](https://i.ibb.co/N3VRBbj/admin-Panal.png)
 
- - Leatest Transation.
+ - Leatest Transactions.
 
- ![transation](https://i.ibb.co/QFrJhY5/transation-List.png)
+ ![Transactions](https://i.ibb.co/QFrJhY5/transation-List.png)
 
  - Exlpore Products 
   ![productsmanage](https://i.ibb.co/YbKJqBh/productsmanage.png)
