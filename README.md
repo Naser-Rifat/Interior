@@ -1,70 +1,61 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![site](https://i.ibb.co/QkwG07m/interior-site-img.png)
 
-In the project directory, you can run:
 
-### `npm start`
+## [INTERIOR.US](https://interior-a2fbe.web.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This is a web application project. The project name is INTERIOR.US and this project is made based on an Interior design company. By this website, the company wants to reach their product and service end to their customer.
 
-### `npm test`
+## 👩‍💻 Technology Used in this project. 
+- React
+- Tailwind css
+- Material UI
+- Node js
+- Express js
+- MongoDB
+- Stripe payment system 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Customers Features Of this Project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ - user can signup with email and password or google.
+ ![signUp](https://i.ibb.co/BcH3nvR/signUp.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ - Customers can see the latest interior design update on the home page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ ![signUp](https://i.ibb.co/jkTJPVT/latest-Project.png)
 
-### `npm run eject`
+ - Exlpore Products 
+  ![Exlpore](https://i.ibb.co/bbjpLXN/explore-Product.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Feedback Section
+  ![Feedback](https://i.ibb.co/sJhbCK8/feedback.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Customers add to cart their products
+  ![addTocart](https://i.ibb.co/wJrBLzS/add-Tocart.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Payment 
+  ![payment](https://i.ibb.co/8268yN3/payment.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Admin Features Of this Project
 
-## Learn More
+- Admin panle.
+ ![signUp](https://i.ibb.co/N3VRBbj/admin-Panal.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ - Leatest Transactions.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ ![Transactions](https://i.ibb.co/QFrJhY5/transation-List.png)
 
-### Code Splitting
+ - Exlpore Products 
+  ![productsmanage](https://i.ibb.co/YbKJqBh/productsmanage.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Manage Order
+  ![manageorders](https://i.ibb.co/3W55yMF/manageorders.png)
 
-### Analyzing the Bundle Size
+- Admin can add an admin
+  ![addadmin](https://i.ibb.co/zVbyDb3/make-Aadmin.png)
+- Admin can add Product
+  ![AddProduct](https://i.ibb.co/8NyvQCy/add-Product-Section.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
