@@ -8,7 +8,7 @@
 
 This is a web application project. The project name is INTERIOR.US and this project is made based on an Interior design company. By this website, the company wants to reach their product and service end to their customer.
 
-## 👩‍💻 Tech Stacks. 
+## 👩‍💻 Technology. 
 - React
 - Tailwind css
 - Material UI
