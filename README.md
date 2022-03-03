@@ -6,7 +6,7 @@
 ## [INTERIOR.US](https://interior-a2fbe.web.app/)
 
 
-This is a web application project. The project name is INTERIOR.US and this project is made based on an Interior design company. By this website, the company wants to reach their product and service end to their customer.
+This is a demo web app. 
 
 ## 👩‍💻 Technology. 
 - React
