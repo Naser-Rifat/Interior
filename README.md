@@ -18,7 +18,7 @@ This is a demo web app.
 - Stripe payment system 
 
 
-## Customers Features Of this Project
+## Website Features.
 
  - user can signup with email and password or google.
  ![signUp](https://i.ibb.co/BcH3nvR/signUp.png)
